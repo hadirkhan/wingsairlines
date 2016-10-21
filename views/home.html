@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/vendors/jquery-ui.css">
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <div class="Rectangle">
+        <div class="logo"></div>
+        <div class="WingsAirlines">WingsAirlines <span class="Line" /></div>
+        <div class="Login">Login<span class="Line" style="margin-left:15px;"/></div>
+        <div class="SignUp">SignUp</div>
+      </div>
+      <div class="Rectangle-2">
+        <div class="captiondiv">
+          <span class="caption-1">Come. Fly. Explore with Us</span>
+          <span class="caption-2">Fly with WingsAirlines</span>
+        </div>
+        <div class="overlayblack">
+          <input type="radio" name="journey_type" id="RoundTrip" ><label style="color:white; margin-left: -30px;" for="RoundTrip">RoundTrip</label> </input>
+          <input type="radio" name="journey_type" id="OneWay" checked ><label style="color:white; margin-left: -30px;" for="OneWay">OneWay</label></input>
+          <div class="Rectangle-4">
+            <p class="Title">From</p>
+            <select class="fromDropDown">
+              <option value="Chicago">Chicago</option>
+              <option value="Newyork">Newyork</option>
+              <option value="Indiana">Indiana</option>
+              <option value="Mumbai">Mumbai</option>
+            </select>
+            <p class="Title" style="margin-top:-65px;margin-left:123px">To</p>
+            <select class="toDropDown">
+              <option value="California">California</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Banglore">Banglore</option>
+            </select>
+            <span class="borderLine" style="margin-left:5px;margin-top:-38px;position: absolute;"></span>
+            <p class="flyinclass">FlyIn Date</p>
+            <input type="text" id="fromDate"/>
+            <p class="flyoutclass">FlyOut Date</p>
+            <input type="text" id="toDate"/>
+            <span class="borderLine" style="margin-left:10px;margin-top:-39px;position: absolute;"></span>
+            <p class="counterTitle">Adult</p>
+            <div class="Counter">
+              <span class="Minus" id="adultminus">-</span><span class="number" id="adultno">1</span><span class="Add" id="adultadd">+</span>
+            </div>
+            <p class="counterTitle" style="margin-left: 570px;margin-top:-64px">Child</p>
+            <div class="Counter" style="margin-left: 570px;">
+              <span class="Minus" id="childminus">-</span><span class="number" id="childno">0</span><span class="Add" id="childadd">+</span>
+            </div>
+            <p class="counterTitle" style="margin-left: 664px;margin-top:-64px">Class</p>
+            <select class="travelClass">
+              <option value="Business">Business</option>
+              <option value="Economy">Economy</option>
+            </select>
+            <span class="borderLine" style="margin-left:12px;margin-top:-39px;position: absolute;"></span>
+            <div class="search"><label class="searchLabel">Search</label></div>
+          </div>
+        </div>
+      </div>
+      <div class="Rectangle-5">
+        <div class="Rectangle-6">
+          <span class="exploreTitle">Explore the Right Destination</span>
+          <div style="margin-top:41px;margin-left: 10px;">
+            <span class="exploreLabel">Budget</span>
+            <input style="margin-left: 40px;" type="text">
+          </div>
+          <div style="margin-top:11px;margin-left: 10px;">
+            <span class="exploreLabel">Proximity</span>
+            <input style="margin-left: 20px;" type="text">
+          </div>
+          <div style="margin-top:11px;margin-left: 10px;">
+            <span class="exploreLabel">Attractions</span>
+            <input style="margin-left: 12px;" type="text">
+          </div>
+          <div class="exploreButton"><label class="exploreButtonLabel">Let's Explore</label></div>
+        </div>
+        <div class="Rectangle-7">
+          <span class="DiscoverTitle">Discover the World with Us</span>
+          <div class="discoverimg1"><span class="discoverimgLabel">Chicago</span></div>
+          <div class="discoverimg2"><span class="discoverimgLabel">Austin</span></div>
+          <div class="discoverimg3"><span class="discoverimgLabel">Albana</span></div>
+          <div class="Rectangle-9"><span class="guideLabel">View Guidebook</span></div>
+        </div>
+      </div>
+      <div class="Rectangle-8">
+        <div class="exploreLinkLeft" style="position: relative;top: 10px;left: 35px;">Most visited destinations</div>
+        <div class="exploreLinkLeft" style="margin-top: -70px; margin-left: 118px;">Low Budget Destinations</div>
+        <div class="exploreLinkLeft" style="margin-top: -80px; margin-left: 206px;">Weekend Gateways</div>
+        <div class="exploreLinkRight" style="margin-top: -78px; margin-left: 755px;">Careers</div>
+        <div class="exploreLinkRight" style="margin-top: -19px; margin-left: 828px;">About Us</div>
+        <div class="exploreLinkRight" style="margin-top: -19px; margin-left: 912px;">Contact Us</div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      $(function() {
+        $("#fromDate").datepicker();
+        $("#toDate").datepicker();  
+      });
+      $("#adultminus").live("click", function(){
+        var count = parseInt($("#adultno").text());
+        if(count > 1) $("#adultno").text(count-1);
+      });
+        $("#adultadd").live("click", function(){
+          $("#adultno").text((parseInt($("#adultno").text()))+1);
+      });
+      $("#childminus").live("click", function(){
+        var count = parseInt($("#childno").text());
+        if(count > 0) $("#childno").text(count-1);
+      });
+        $("#childadd").live("click", function(){
+        $("#childno").text((parseInt($("#childno").text()))+1);
+      });
+      $("#RoundTrip").live("click", function(){
+        $("#OneWay").prop('checked', false);
+      });
+      $("#OneWay").live("click", function(){
+        $("#RoundTrip").prop('checked', false);
+      });
+    </script>
+  </body>
+</html>
