@@ -1,5 +1,5 @@
 /*@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');*/
-
+@import url('https://fonts.googleapis.com/css?family=Nova+Slim|Open+Sans');
 @font-face {
     font-family: 'RobotoCondensedBold';
     src: url('/fonts/fonts-roboto/RobotoCondensed-Bold.ttf');
@@ -13,6 +13,7 @@
 html, body{
     margin: 0;
     padding: 0;
+    font-family: RobotoCondensedRegular;
 }
 .Rectangle {
   width: 1024px;
@@ -465,4 +466,139 @@ html, body{
     position: relative;
     top: 7px;
     cursor: pointer;
+}
+.custom-nav-bar{
+  margin-top: -1px;
+  border-radius: 0px;
+  border-bottom: solid 2px #E0E0E0;
+}
+.main-logo{
+  margin-top: -16px;
+  width: 220px;
+  height: 50px;
+}
+.nav-separator{
+  height: 50px;
+  border: 1px solid #E0E0E0;
+}
+.footer {
+  color: #f4f4f8;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #575555;
+  font: 13px Open Sans;
+}
+.footer-left-nav{
+  padding-top: 8px;
+}
+.footer-right-nav{
+  padding-top: 16px;
+}
+.footer-right-nav-item{
+  float: right;
+}
+.right-align{
+  float: right!important;
+}
+.navbar-item{
+  width: 110px;
+  text-align: center;
+}
+.main-img-banner{
+  width: 100%;
+  height: 450px;
+  margin-top: -22px;
+  position: relative;
+}
+.banner-big-text{
+  left: 400px;
+  color: white;
+  position: absolute;
+  font: 38px RobotoCondensedBold;
+  top: 152px;
+}
+.banner-small-text{
+  left: 400px;
+  color: white;
+  position: absolute;
+  font: 28px Nova Slim;
+  top: 200px;
+}
+.black-overlay{
+  top: 360px;
+  width: 100%;
+  height: 140px;
+  background-color: rgba(43, 42, 42, 0.88);
+  position: absolute;
+}
+.radio-trip-type{
+  top: 385px;
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  width: 80%;
+}
+.search-box{
+  background-color: rgba(216, 216, 216, 0.76);
+  position: absolute;
+  top: 420px;
+  margin-left: 30px;
+  height: 60px;
+}
+.search-box-item{
+  display: inline-flex; 
+  margin-top: 15px;
+}
+.search-form-separator{
+  width: 1px;
+  height: 60px;
+  position: absolute;
+  border: solid 1px #979797;
+}
+#rightDestinationForm label {
+  font-family: RobotoCondensedBold;
+  font-size: 16px;
+}
+#rightDestinationForm div{
+  padding-top: 5px;
+  display: inline-flex;
+}
+#btnSearchRightDestinations{
+  float: right;
+  margin: 10px 82px 0px 0px;
+}
+.right-bottom-dest{
+  padding: 15px 0px 20px 25px;
+  margin-right: 70px;
+}
+.dest-images{
+  width: 250px;
+  height: 150px;
+}
+.dest-img-text{
+  position: absolute;
+  left: 120px;
+  top: 60px;
+  color: white;
+  font-family: RobotoCondensedBold;
+}
+.dest-img-overlay{
+  width: 250px;
+  background-color: rgba(0, 0, 0, .8);
+}
+.dest-img-overlay img{
+  opacity: 0.5;
+}
+.see-more-dest{
+  text-align: center;
+  font-size: 13px;
+  text-decoration: underline;
+  float: right;
+  top: 10px;
+}
+.ui-datepicker { 
+  left: 500px;
+  top: 471px !important;
+  z-index: 1000;
 }

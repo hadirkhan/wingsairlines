@@ -1,5 +1,149 @@
-extends layout
+extends ./templates/main.jade
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div
+    nav.navbar.navbar-default.custom-nav-bar
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand(href='#')
+            img.main-logo(alt='Wings Airlines', src='/images/main_logo.svg')
+        ul.nav.navbar-nav
+          li.nav-separator
+        ul.nav.navbar-nav.navbar-right
+          li.nav-separator
+          li.navbar-item: a(href="#") Login
+          li.nav-separator
+          li.navbar-item: a(href="#") Signup
+  div
+    img.main-img-banner(src="/images/background.jpg")
+    div.banner-big-text Come. Fly. Explore with Us!
+    div.banner-small-text Fly with WingsAirlines
+  div.col-md-12.black-overlay
+  div.container
+    form#search-form
+      div.row.radio-trip-type
+        div.col-md-6
+          div.col-md-3
+            input#radio-trip-round(type="radio", checked="true", name="tripType", value="round")
+            label(style="padding-left: 5px", for='radio-trip-round') Round-trip
+          div.col-md-3
+            input#radio-trip-oneway(type="radio", name="tripType", value="oneway")
+            label(style="padding-left: 5px", for='radio-trip-oneway') One-way
+      div.row
+        div.col-md-10.search-box
+          div.col-md-1.search-box-item(style="")
+            span(style="font-size:14px; margin-top: 5px;") From:
+            br
+            select.form-control(style="width: 115px; margin-left: 4px;")
+              option(selected="true", value='Chicago') Chicago
+              option(value='Newyork') Newyork
+              option(value='Indiana') Indiana
+              option(value='Mumbai') Mumbai
+          div.search-form-separator(style="left: 190px")
+          
+          div.col-md-1.search-box-item(style="margin-left: 85px;")
+            span(style="font-size:14px; margin-top: 5px;") To:
+            br
+            select.form-control(style="width: 115px; margin-left: 4px;")
+              option(value='Chicago') Chicago
+              option(selected="true", value='Newyork') Newyork
+              option(value='Indiana') Indiana
+              option(value='Mumbai') Mumbai
+          div.search-form-separator(style="left: 350px")
+          
+          div.col-md-2.search-box-item(style="margin-left: 65px;")
+            span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
+            input#departDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
+          div.search-form-separator(style="left: 535px")
+
+          div.col-md-2.search-box-item
+            span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
+            input#returnDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
+          div.search-form-separator(style="left: 720px")
+
+          div.col-md-2.search-box-item
+            span(style="font-size:14px; margin-top: 5px;") Adult
+            div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+              span#adultCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
+              span#adultCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 1
+              span#adultCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
+
+          div.col-md-2.search-box-item(style="margin-left: -60px;")
+            span(style="font-size:14px; margin-top: 5px;") Children
+            div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+              span#childCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
+              span#childCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 1
+              span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
+
+          div#btn-search(style="float: right")
+            button.btn.btn-warning(style="margin-top: 15px", type="button") Search
+  div.row(style="width: 100%; margin-top: 15px; padding-bottom: 50px;")
+    div.col-md-4(style="background-color: #fbfafa; border-right: 1px solid #e3e3e3;") 
+      h4(style="font-weight: bold; text-align: center") Explore the Right Destinations
+      div(style="padding: 15px 0px 0px 55px;")
+        form#rightDestinationForm
+          div
+            label(style="margin-top: 5px", for='budget') Budget
+            input#budget.form-control(type="text", name="budget", style="margin-left: 55px;")
+          div
+            label(style="margin-top: 5px", for='budget') Proximity
+            input#proximity.form-control(type="text", name="budget", style="margin-left: 39px;")
+          div
+            label(style="margin-top: 5px", for='budget') Attractions
+            input#attractios.form-control(type="text", name="budget", style="margin-left: 30px;")
+          div#btnSearchRightDestinations
+            button.btn.btn-primary.btn-block(type="button") Let's Explore
+    div.col-md-8
+      h4(style="font-weight: bold; text-align: center") Discover the world with us
+      div.col-md-3.right-bottom-dest
+        div.dest-img-overlay
+          img.dest-images(src="/images/chicago.jpg")
+          h3.dest-img-text Chicago
+      div.col-md-3.right-bottom-dest
+        div.dest-img-overlay
+          img.dest-images(src="/images/austin.jpg")
+          h3.dest-img-text Austin            
+      div.col-md-3.right-bottom-dest
+        div.dest-img-overlay
+          img.dest-images(src="/images/albana.jpg")
+          h3.dest-img-text Albana
+    div.col-md-8.see-more-dest See More Destinations
+
+block append scripts
+    script.
+      window.onload = function(){
+        var datePickerOptions = {
+          changeMonth: true,
+          changeYear: true,
+          minDate: '0D',
+        }
+        $('#departDate').datepicker(datePickerOptions);
+        $('#returnDate').datepicker(datePickerOptions);
+
+        $('#adultCountMinus').on('click', function(){
+            var count = parseInt($('#adultCount').text());
+            if(count && count > 1) {
+                $('#adultCount').text(count - 1);
+            }
+        });
+        $('#adultCountPlus').on('click', function(){
+            var count = parseInt($('#adultCount').text());
+            if(count && count < 9) {
+                $('#adultCount').text(count + 1);
+            }
+        });
+
+        $('#childCountMinus').on('click', function(){
+            var count = parseInt($('#childCount').text());
+            if(count && count > 1) {
+                $('#childCount').text(count - 1);
+            }
+        });
+        $('#childCountPlus').on('click', function(){
+            var count = parseInt($('#childCount').text());
+            if(count && count < 9) {
+                $('#childCount').text(count + 1);
+            }
+        });
+      }
+
