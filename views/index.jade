@@ -1,24 +1,14 @@
 extends ./templates/main.jade
 
 block content
-  div
-    nav.navbar.navbar-default.custom-nav-bar
-      div.container-fluid
-        div.navbar-header
-          a.navbar-brand(href='#')
-            img.main-logo(alt='Wings Airlines', src='/images/main_logo.svg')
-        ul.nav.navbar-nav
-          li.nav-separator
-        ul.nav.navbar-nav.navbar-right
-          li.nav-separator
-          li.navbar-item: a(href="#") Login
-          li.nav-separator
-          li.navbar-item: a(href="#") Signup
+  
+  include ./templates/navbar.jade
+  
   div
     img.main-img-banner(src="/images/background.jpg")
     div.banner-big-text Come. Fly. Explore with Us!
     div.banner-small-text Fly with WingsAirlines
-  div.col-md-12.black-overlay
+    div.col-md-12.black-overlay
   div.container
     form#search-form
       div.row.radio-trip-type
@@ -76,7 +66,8 @@ block content
               span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
 
           div#btn-search(style="float: right")
-            button.btn.btn-warning(style="margin-top: 15px", type="button") Search
+            button.btn.btn-warning(style="margin-top: 15px", type="button")
+                a(href="/search", style="color:white") Search
   div.row(style="width: 100%; margin-top: 15px; padding-bottom: 50px;")
     div.col-md-4(style="background-color: #fbfafa; border-right: 1px solid #e3e3e3;") 
       h4(style="font-weight: bold; text-align: center") Explore the Right Destinations

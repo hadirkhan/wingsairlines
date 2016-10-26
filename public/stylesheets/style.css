@@ -102,12 +102,12 @@ html, body{
   cursor: pointer;
 }
 .Rectangle-2 {
-  width: 1026px;
+/*  width: 1026px;
   height: 437px;
   background-image: url('../images/background.jpg');
   background-repeat:no-repeat;
   background-size: 100%, 100%;
-  border: solid 1px #d2c7c7;
+  border: solid 1px #d2c7c7;*/
 }
 .captiondiv{
   margin-top: 95px;
@@ -488,6 +488,9 @@ html, body{
   height: 50px;
   background-color: #575555;
   font: 13px Open Sans;
+}
+.footer a{
+  color: #f4f4f8;
 }
 .footer-left-nav{
   padding-top: 8px;

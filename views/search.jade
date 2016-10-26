@@ -1,0 +1,213 @@
+extends ./templates/main.jade
+
+block content
+  include ./templates/navbar.jade
+  form
+    .Rectangle-2
+      .Rectangle-4(style='margin-top: 39px;margin-left: 75px;')
+      .Chicago(style=' margin-left: 147px;')
+        | Chicago
+        span.Line(style='margin-top: -17px;height: 55px;margin-left: 75px;')
+      .Chicago(style='margin-top: -25px;margin-left: 365px;')
+        | New York
+        span.Line(style='margin-top: -18px;height: 55px;margin-left: 78px;')
+      .Fly-In(style='margin-top: -25px;margin-left: 582px;') Fly In
+      .arrow(style='background-image: url(../Images/arrowgray.PNG);margin-top:-20px;margin-left: 654px;')
+      .Fly-In(style='margin-top: -41px;margin-left: 720px;')
+        | Fly Out
+        span.Line(style='margin-top: -19px;height: 55px;margin-left: 48px;')
+      .-Adult-Economy(style='margin-left:922px;margin-top: -25px;') 1 Adult Economy
+      button.Edit(type='button') Edit
+    .Rectangle-13
+      .New-York-to-New-York(style=' margin-top: 15px;margin-left: 144px;') New York to Indiana - Thursday 27 Oct  2016
+      .New-York-to-New-York(style=' margin-top: -26px;margin-left: 905px;') Indiana to New York- Sunday 30 Oct  2016
+      .Rectangle-14
+        .DURATION(style='margin-top: 12px;margin-left: 12px;') DURATION
+      .Rectangle-14(style='margin-top: -47px;margin-left: 189px;')
+        .DURATION(style='margin-top: 12px;margin-left: 12px;') DEPARTURE
+      .Rectangle-14(style='margin-top: -47;margin-left: 328px;')
+        .DURATION(style='margin-top: 12px;margin-left: 12px;') ARRIVAL
+      .Rectangle-14(style='margin-top: -47px;margin-left: 467px;')
+        .DURATION(style='margin-top: 12px;margin-left: 2px;') PRICE
+      .pricearrow
+      .Rectangle-14(style='margin-left: 829px;margin-top: -51px;')
+        .DURATION(style='margin-top: 12px;margin-left: 12px;') DURATION
+      .Rectangle-14(style='margin-top: -47px;margin-left: 966px;')
+        .DURATION(style='margin-top: 12px;margin-left: 12px;') DEPARTURE
+      .Rectangle-14(style='margin-top: -47px;margin-left: 1103px;')
+        .DURATION(style='margin-top: 12px;margin-left: 12px;') ARRIVAL
+      .Rectangle-14(style='margin-top: -47px;margin-left: 1240px;')
+        .DURATION(style='margin-top: 12px;margin-left: 2px;') PRICE
+      .pricearrow(style='margin-left:1340px;')
+      .Rectangle-6
+        input.flightselect1.big-radio(type='radio', checked='', name='flight', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 02:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 04:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $150
+      .Rectangle-6(style='background-color:#ffffff')
+        input.flightselect2.big-radio(type='radio', name='flight', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 02:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 04:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $175
+      .Rectangle-6(style='background-color:#ffffff')
+        input.flightselect3.big-radio(type='radio', name='flight', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 02:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 04:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $200
+      .Rectangle-6(style='background-color:#ffffff')
+        input.flightselect4.big-radio(type='radio', name='flight', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 02:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 04:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $225
+      .Rectangle-6(style='background-color:#ffffff')
+        input.flightselect5.big-radio(type='radio', name='flight', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 02:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 04:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $250
+      .Rectangle-6(style='background-color:#ffffff;margin-top: -601px;margin-left: 829px;width: 547px;')
+        input.flightselect6.big-radio(type='radio', name='flight2', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 10:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 12:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $100
+      .Rectangle-6(style='background-color:#ffffff;margin-left: 829px;width: 547px;')
+        input.flightselect7.big-radio(type='radio', name='flight2', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 12:05
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 14:05
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $179
+      .Rectangle-6(style='margin-left: 829px;width: 547px;')
+        input.flightselect8.big-radio(type='radio', checked='', name='flight2', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 12:30
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 14:30
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $125
+      .Rectangle-6(style='background-color:#ffffff;margin-left: 829px;width: 547px;')
+        input.flightselect9.big-radio(type='radio', name='flight2', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 14:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 16:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $275
+      .Rectangle-6(style='background-color:#ffffff;margin-left: 829px;width: 547px;')
+        input.flightselect10.big-radio(type='radio', name='flight2', style='margin-left: -245px;margin-top: 38px;')
+        .logo1(style='border: solid 1px #979797;background-color: #19707b;width:40.1px;background-image: url(../Images/shape1.svg);background-position: center; height:40.1px;margin-top: -33px;margin-left: 61px;')
+        .WingsAirlines1(style='color: #656565;margin-left: 121px;') WingsAirlines
+        .-NY(style='color: #656565;margin-left:231px')
+          span(style='color:#000000;') 02:00
+          br
+          | Non Stop
+        .-IN(style='color:#656565;margin-top:-40px;margin-left: 362px;')
+          span(style='color:#000000;') 04:00
+          br
+          | 2h 00m
+        .amount(style='color: #9d0d0d;font-size: 20px;margin-top:-34px;margin-left: 460px;') $150
+    .Rectangle-3
+      #leftcolumn
+        .Rectangle-5
+          .logo1
+          .WingsAirlines1 WingsAirlines
+          .-NY
+            | 02:00
+            br
+            | NY
+          .arrow
+          .-IN
+            | 04:00
+            br
+            | IN
+          .amount
+            | $150
+            br
+            | Amount
+      #rightcolumn
+        .Rectangle-5
+          .logo1
+          .WingsAirlines1 WingsAirlines
+          .-NY
+            | 12:30
+            br
+            | IN
+          .arrow
+          .-IN
+            | 14:30
+            br
+            | NY
+          .amount
+            | $125
+            br
+            | Amount
+          .-Total-Amount(style='margin-top:-48px;margin-left: 546px;')
+            | $275
+            br
+            | Total
+            br
+            | Amount
+          button.Book(type='button') Book

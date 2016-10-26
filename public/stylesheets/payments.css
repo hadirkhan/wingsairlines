@@ -1,0 +1,370 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
+}
+html, body{
+ margin: 0;
+ padding: 0;
+}
+.Rectangle { 
+  width: 1440px;
+  height: 55px;
+  background-color: #f9f8f6;
+  border: solid 1px #979797;
+  
+}
+.Line {
+  position: absolute;
+  margin-left: 10px;
+  margin-top: -18px;
+  height: 53px;
+  border: solid 1px #d2c7c7;
+}
+.logo {
+  margin-left: 16.3px;
+  margin-top: 5.3px;
+  width: 45.1px;
+  height: 43.4px;
+  background-image: url('/images/logo.png');
+  background-repeat: no-repeat;  
+}
+.WingsAirlines {
+  margin-top: -38px;
+  margin-left: 73px;
+  width: 195.5px;
+  height: 33px;
+  font-family: Roboto;
+  color: #19707b;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: condensed;
+}
+.Login {
+  margin-top: -30px;
+  margin-left: 1217px;
+  width: 60.5px;
+  height: 24px;
+  font-family: Roboto;
+  color: #19707b;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: condensed;
+  cursor: pointer;
+}
+.SignUp {
+  margin-top: -24px;
+  margin-left: 1343px;
+  width: 78.7px;
+  height: 24px;
+  font-family: Roboto;
+  color: #19707b;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: condensed;
+  cursor: pointer;
+}
+.rectangle-2 {
+  width: 1440px;
+  height: 34.8px;
+  background-color: rgba(24, 111, 122, 0.66);
+  border: solid 1px #979797;
+}
+.flightdetails {
+  width: 147.7px;
+  height: 25.1px;
+ margin-left: 15px;
+     margin-top: 5px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #f8f9fc;
+}
+.detailsTitle {
+  width: 163px;
+  height: 25.1px;
+ margin-left: 15px;
+     margin-top: 5px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #f8f9fc;
+}
+.passengerDetails{
+display: none;
+}
+.paymentDetails{
+display: none;
+}
+.rectangle-6 {
+  width: 1440px;
+  height: 34.8px;
+ // margin-top: -63px;
+  background-color: rgba(24, 111, 122, 0.66);
+  border: solid 1px #979797;
+  //display:none;
+}
+.personalDetails{
+width:1440px;
+height:110px;
+border: solid 1px #c5c5c5;
+}
+.contactDetails{
+width:1440px;
+height:110px;
+border: solid 1px #c5c5c5;
+}
+.details {
+  width: 133.4px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #4f4f4f;
+}
+.box {
+  width: 351.9px;
+  height: 35.1px;
+  background-color: #fcf8f8;
+  border: solid 1px #979797;
+}
+.box1 {
+  width: 175.95px;
+  height: 35.1px;
+  background-color: #fcf8f8;
+  border: solid 1px #979797;
+}
+.number {
+  width: 179.1px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #a8a8a8;
+}
+.female {
+  width: 179.1px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #4f4f4f;
+}
+.cardDetails{
+width:1440px;
+height:220px;
+border: solid 1px #c5c5c5;
+}
+.rectangle-3 {
+  width: 1440px;
+  height: 275px;
+  background-color: #e8e7e4;
+  //border: solid 1px #c5c5c5;
+}
+.departure {
+  width: 105px;
+  height: 24px;
+  margin-left: 26px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #4e4e4f;
+}
+.rectangle-4 {
+  width: 1410px;
+  height: 100px;
+  margin-left : 15px;
+  background-color: #ffffff;
+  border: solid 1px #c5c5c5;
+}
+.datetimetitle {
+  margin-top: 10px;
+  width: 148px;
+  height: 24px;
+  margin-left: 26px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #4e4e4f;
+}
+.wings_airlines_logo {
+  width: 35px;
+  height: 35px;
+  margin-left: 26px;
+  margin-top: 10px;
+  background-image: url('/images/Wings_Flight_Logo.svg');
+  background-repeat:no-repeat;
+}
+.wings_airlines {
+  width: 148px;
+  height: 20px;
+  position: relative;
+  top: 10px;
+  margin-left: 45px;
+  font-family: RobotoCondensedBold;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #4e4e4f;
+}
+.source {
+  width: 80px;
+  height: 60px;
+  margin-left: 370px;
+  margin-top: -60px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: condensed;
+  text-align: center;
+  color: #4e4e4f;
+}
+.arrow {
+    width: 48px;
+    height: 48px;
+    margin-left: 560.4px;
+    margin-top: -50px;
+  background-image: url('/images/arrow2.png');
+  background-size: 100%,100%;
+  background-repeat: no-repeat;
+}
+.destination {
+  width: 80px;
+  height: 60px;
+  margin-left: 690px;
+  margin-top: -58px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: condensed;
+  text-align: center;
+  color: #4e4e4f;
+}
+.econo {
+  width: 100px;
+  height: 60px;
+  margin-left: 1024px;
+  margin-top: -60px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: condensed;
+  text-align: center;
+  color: #4e4e4f;
+}
+.amount{
+  width: 68.7px;
+  height: 46px;
+  margin-left: 1260px;
+  margin-top: -46px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: condensed;
+  text-align: center;
+  color: #4e4e4f;
+}
+.rate{
+font-size: 24px;
+}
+.titeleAmount{
+font-size: 20px;
+}
+.totalamount {
+  width: 184.9px;
+  height: 78px;
+  margin-left: 1080px;
+  margin-top: 10px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: condensed;
+  text-align: center;
+  color: #050506;
+}
+.rectangle-5 {
+     width: 180.1px;
+    height: 50px;
+    margin-left: 1259px;
+    margin-top: -75px;
+  background-color: #ecd72d;
+  border: solid 1px #19707b;
+  cursor: pointer;
+}
+.rectangle-7 {
+    width: 180.1px;
+    height: 50px;
+    margin-left: 1259px;
+  background-color: #ecd72d;
+  border: solid 1px #19707b;
+  cursor: pointer;
+}
+.rectangle-9 {
+    width: 180.1px;
+    height: 50px;
+    margin-left: 1259px;
+  background-color: #ecd72d;
+  border: solid 1px #19707b;
+  cursor: pointer;
+}
+.makePayment {
+      width: 150px;
+    height: 32px;
+    margin-top: 11px;
+    margin-left: 30px;
+    font-family: Roboto;
+    font-size: 20px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #19707b;
+}
+.Pay {
+      width: 150px;
+    height: 32px;
+    margin-top: 5px;
+    margin-left: 65px;
+    font-family: Roboto;
+    font-size: 30px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #19707b;
+}
+.continue {
+    width: 105px;
+    height: 32px;
+    margin-top: 5px;
+    margin-left: 34px;
+    font-family: Roboto;
+    font-size: 31px;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: #19707b;
+}
+.Rectangle-8 {
+  width: 1440px;
+  height: 57px;
+  background-color: #575555;
+  border: solid 1px #1d0202;
+  margin-top: 10px
+  
+}
+.exploreLinkLeft {
+  width: 128px;
+  height: 30px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  color: #f4f4f8;
+  
+}
