@@ -13,23 +13,22 @@ html, body{
 .Line {
 	position: absolute;
 	margin-left: 10px;
-    margin-top: -18px;
-    height: 53px;
-    border: solid 1px #d2c7c7;
+  margin-top: -18px;
+  height: 53px;
+  border: solid 1px #d2c7c7;
 }
 .logo {
   margin-left: 16.3px;
-  margin-top: 5.3px;
   width: 45.1px;
   height: 43.4px;
   background-repeat: no-repeat;
   background-image: url('/images/logo.png');  
 }
-.logo1 {
-  margin-left: 6.3px;
-  margin-top: 5.3px;
-  width: 34.1px;
-  height: 37.4px;
+.confirm-box-logo1 {
+  margin-left: -9px;
+  margin-top: 5px;
+  width: 36px;
+  height: 36px;
   background-image: url('/images/logo1.png');
   background-repeat: no-repeat;
 }
@@ -157,38 +156,25 @@ html, body{
   margin-left:542px;
   margin-top: -50px
 }
-#leftcolumn, #rightcolumn { 
-    float: left;
-    min-height: 220px;
-    color: white;
+#confirm-box-leftcolumn, #confirm-box-rightcolumn { 
+  float: left;
+  color: white;
+  width: 508px;
 }
-#leftcolumn {
+#confirm-box-leftcolumn {
 	border-right: 0.5px solid white;
-	width : 508px
 }
-#rightcolumn {
-	width : 508px
-}
-.Shape {
-  width: 140.9px;
+
+.logo-central {
   height: 131.8px;
-  background-color: #ffffff;
-  background-image: url('/images/shape@3x.png');  
-  margin-left:671px;
-  margin-top: 120px
+  margin: 25px 0 20px 45%;
+  background-image: url('/images/shape@3x.png');
+  background-repeat: no-repeat;
 }
-.Yay-Congratulation {
-  width: 490.1px;
-  height: 64px;
-  font-family: Roboto;
-  font-size: 24px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
+.cofirmation-text-msg {
+  padding-bottom: 25px;
+  font: 24px RobotoCondensedBold;
   text-align: center;
-  color: #0b0b0b;
-  margin-left:480px;
-  margin-top: 40px
 }
 .Rectangle-5 {
   margin-left: 16.3px;
@@ -237,4 +223,25 @@ html, body{
   color: #f4f4f8;
   
 }
-
+.confirm-ticket-box{
+  margin-bottom: 25px;
+  height: 70px;
+  background-color: rgb(87, 85, 85);
+  color: white;
+  font-family: Roboto;
+  padding-top: 10px;
+}
+.logo-background{
+  background-color: #19707b;
+  margin-top: 1px;
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  border: 1px solid #a09e9e;
+}
+.confirm-logo-text {
+  text-align: center;
+  margin-top: 14px;
+  margin-left: -5px;
+  font-size: 16px;
+}
