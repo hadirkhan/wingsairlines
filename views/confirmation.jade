@@ -1,7 +1,10 @@
 extends ./templates/main.jade
 
 block content
+  - var toPrice = 500; var fromPrice = 900;
+  
   include ./templates/navbar.jade
+  
   div.container
     div
       div.logo-central
@@ -11,46 +14,25 @@ block content
         | Your ticket has been booked
   div.container
     div.row.confirm-ticket-box
-      div.col-md-6
+      div.col-md-6.to-flight-info
         div.col-md-5
           div.col-md-1.logo-background
             div.confirm-box-logo1
           div.col-md-8.confirm-logo-text Wings Airlines
-        div.col-md-2 World
-      div.col-md-6
-
-  //- div.Rectangle-3
-  //-   div#confirm-box-leftcolumn
-  //-     div.Rectangle-5
-  //-       div.logo1
-  //-       div.WingsAirlines1 WingsAirlines
-  //-       div.-NY 
-  //-         | 02:00
-  //-         br 
-  //-         | NY
-  //-       div.arrow
-  //-       div.-IN
-  //-         | 04:00
-  //-         br
-  //-         | IN
-  //-       div.amount
-  //-         | $150
-  //-         br
-  //-         | Amount
-  //-   div#confirm-box-rightcolumn
-  //-     div.Rectangle-5
-  //-       div.logo1
-  //-       div.WingsAirlines1 WingsAirlines
-  //-       div.-NY
-  //-         | 12:30
-  //-         br
-  //-         | IN
-  //-       div.arrow
-  //-       div.-IN
-  //-         | 14:30
-  //-         br
-  //-         | NY
-  //-       div.amount
-  //-         | $125
-  //-         br
-  //-         | Amount
+        div.col-md-2.to-text 02:00 NYK
+        div.col-md-1.confirm-box-arrow
+        div.col-md-2.from-text 05:00 CHG
+        div.col-md-2.ticket-price $ #{toPrice}
+      div.col-md-6.return-flight-info
+        div.col-md-5
+          div.col-md-1.logo-background
+            div.confirm-box-logo1
+          div.col-md-8.confirm-logo-text Wings Airlines
+        div.col-md-2.to-text 18:00 CHG
+        div.col-md-1.confirm-box-arrow
+        div.col-md-2.from-text 22:00 NYK
+        div.col-md-2.ticket-price $ #{fromPrice}
+    div.row.thankyou-text
+      | A copy of ticket is mailed to you.
+      br
+      | Thank you for using Wings Airlines!

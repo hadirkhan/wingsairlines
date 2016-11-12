@@ -56,10 +56,8 @@ html, body{
   font-stretch: condensed;
   color: #ffffff;
 }
-.arrow {
-  margin-left: 248px;
-  margin-top: -28px;
-  width: 34.1px;
+.confirm-box-arrow {
+  margin-top: 15px;
   height: 37.4px;
   background-image: url('/images/arrow.png');
   background-repeat: no-repeat;
@@ -226,7 +224,7 @@ html, body{
 .confirm-ticket-box{
   margin-bottom: 25px;
   height: 70px;
-  background-color: rgb(87, 85, 85);
+  background-color: rgb(75, 75, 75);
   color: white;
   font-family: Roboto;
   padding-top: 10px;
@@ -244,4 +242,31 @@ html, body{
   margin-top: 14px;
   margin-left: -5px;
   font-size: 16px;
+}
+.to-text{
+  text-align: center;
+  margin: 1px 0px 0px 0px;
+  font-size: 18px;
+}
+.from-text{
+  text-align: center;
+  margin: 1px 0px 0px -15px;
+  font-size: 18px;
+}
+.ticket-price{
+  text-align: center;
+  margin: 10px 0px 0px 5px;
+  font-size: 20px;
+}
+.to-flight-info{
+  border-right: 1px solid;
+}
+.return-flight-info{
+
+}
+.thankyou-text{
+  text-align: center;
+  padding: 50px 0px 60px 0px;
+  font: 20px Roboto;
+  color: #4b4b4b;
 }

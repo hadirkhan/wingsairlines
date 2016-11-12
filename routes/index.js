@@ -18,7 +18,6 @@ router.get('/payments', function(req, res, next){
 
 router.get('/confirmation', function(req, res, next){
   res.render('confirmation', { title: 'Confirmation' });
-  // res.sendFile('confirmation.html', {root: path.join(__dirname, '..', 'views')});
 });
 
 router.get('/about', function(req, res, next){
