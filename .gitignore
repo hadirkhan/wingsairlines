@@ -1,1 +1,7 @@
 /node_modules/
+/.DS_Store
+/public/.DS_Store
+/public/stylesheets/.DS_Store
+/views/.DS_Store
+/views/payments_old.html
+/views/templates/.DS_Store
