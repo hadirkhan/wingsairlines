@@ -1,0 +1,136 @@
+extends ./templates/main.jade
+  
+block content
+  include ./templates/navbar.jade
+  form
+    div.p-rectangle-2
+      div.p-flightdetails Flight Details
+    div.p-rectangle-3   
+      div.p-departure DEPARTURE
+      div.p-rectangle-4
+        div.p-datetimetitle 10 Oct 2016, Mon
+        div.col-sm-2.col-md-2.col-lg-2.p-wings_airlines_logo
+          span.p-wings_airlines WingsAirlines
+        div.col-sm-2.col-md-2.col-lg-2.p-source
+          | 02:00
+          br
+          | NY
+          br
+          |  New York
+        div.col-sm-2.col-md-2.col-lg-2
+          div.p-arrow
+        div.col-sm-2.col-md-2.col-lg-2.p-destination
+          | 04:00
+          br
+          | IN
+          br
+          |  Indiana
+        div.col-sm-2.col-md-2.col-lg-2.p-econo
+          | 2h 5m 
+          br
+          |  Non Stop 
+          br
+          |  Economy
+        div.col-sm-2.col-md-2.col-lg-2.p-amount
+              span.p-rate $ 100
+              br
+              span.p-titeleAmount Amount
+      div.p-departure RETURN
+      div.p-rectangle-4
+        div.p-datetimetitle 12 Oct 2016, Mon
+        div.col-sm-2.col-md-2.col-lg-2.p-wings_airlines_logo
+          span.p-wings_airlines WingsAirlines
+        div.col-sm-2.col-md-2.col-lg-2.p-source
+          | 02:00
+          br
+          | IN
+          br
+          |  Indiana
+        div.col-sm-2.col-md-2.col-lg-2
+          div.p-arrow
+        div.col-sm-2.col-md-2.col-lg-2.p-destination
+          | 04:00
+          br
+          | NY
+          br
+          |  NewYork
+        div.col-sm-2.col-md-2.col-lg-2.p-econo
+          | 2h 5m 
+          br
+          |  Non Stop 
+          br
+          |  Economy
+        div.col-sm-2.col-md-2.col-lg-2.p-amount
+              span.p-rate $ 100
+              br
+              span.p-titeleAmount Amount 
+    div.row(style="margin-right:0px")
+      div.col-sm-10.col-md-10.col-lg-10
+        div.p-totalamount
+          | Total Amount
+          br
+          |  $ 200
+      div#p-continue1.col-sm-2.col-md-2.col-lg-2
+        button.btn.btn-warning.btn-lg.p-rectangle-5
+          label.p-continue Continue   
+    form(action='', method='post', id='contactForm')
+      div.p-passengerDetails
+        div.p-rectangle-6
+          div.p-detailsTitle Passenger Details
+        - for(var i=1; i<5; i++)
+            div.row.p-personalDetails(style="float: left; margin-right:0px")
+              div.p-details.col-md-2(style='margin-top:1%') Adult - #{i}:               
+              div.col-md-2           
+                input.p-box(type='text', name='firstname', placeholder='First Name' required)
+                input.p-box(type='text', name='age', placeholder='Age')
+                input.radio-gender(style='margin-top:4%')(type="radio", checked="true", name="female", value="female")(id='genderfemale'+i)
+                label(style="padding-left: 5%", for='genderfemale') Female
+                input.radio-gender(style='margin-left:15%')(type="radio", name="male", value="male" )(id='gendermale'+i)
+                label(style="padding-left: 5%", for='gendermale') Male
+              div.col-md-2
+                input.p-box(type='text', name='lastname', placeholder='Last Name' required)
+                input.p-box(type='text', name='passport', placeholder='Passport Number' required)  
+              div.p-details.col-md-2(style='margin-top:1%') Contact Details :
+              div.col-md-2
+                input.p-box(type='email', name='email', placeholder='E-mail Address' required)
+                input.p-box(type='text', name='mobile', placeholder='Mobile Number' required)          
+        div.row(style="margin-right:0px")
+          button#p-makepayment.btn.btn-warning.btn-lg.p-rectangle-7(type='submit')
+            label.p-makePayment Make Payment 
+    div.p-paymentDetails
+      div.p-rectangle-6
+        div.p-detailsTitle Payment Details
+      div.p-cardDetails
+        div.p-details.col-md-2(style='margin-top:1%') Card Holder Details :
+        div.col-md-2                
+          input.p-box1(type='text', name='cardholdername', placeholder='Card Holder Name')      
+          input.p-box1(type='text', name='cardtype', placeholder='Card Type')
+          input.p-box1(type='text', name='cardnumber', placeholder='Card Number')
+          input.p-box1(type='text', name='billing', placeholder='Billing Address')
+        div.col-md-8
+      div.row(style="margin-right:0px")
+        button#p-pay.p-rectangle-7.btn.btn-warning.btn-lg(type='submit')
+            label.p-Pay
+              a(style='color: #ffffff', href='/confirmation') Pay
+
+
+
+
+block append scripts
+  script.
+    $("#p-continue1").on("click", function(){
+    $(".p-totalamount").css('display','none');
+    $(".p-rectangle-5").css('display','none');
+    $(".p-passengerDetails").css('display','block');
+    });
+
+    $("#p-makepayment").on("click", function(){
+    $("#p-makepayment").css('display','none');
+    $(".p-paymentDetails").css('display','block');
+    });
+    //$("#genderfemale").on("click", function(){
+    //$("#gendermale").prop('checked', false);
+    //});
+    //$("#gendermale").on("click", function(){
+    //$("#genderfemale").prop('checked', false);
+    //});

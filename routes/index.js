@@ -7,6 +7,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Wings-Welcome!' });
   //res.sendFile('home.html', {root: path.join(__dirname, '..', 'views')});
 });
+router.get('/searchjade', function(req, res, next) {
+  res.render('search', { title: 'Flight Search' });
+  //res.sendFile('home.html', {root: path.join(__dirname, '..', 'views')});
+});
+router.get('/paymentsjade', function(req, res, next) {
+  res.render('payments', { title: 'Payments' });
+  //res.sendFile('home.html', {root: path.join(__dirname, '..', 'views')});
+});
 
 router.get('/search', function(req, res, next){
   res.sendFile('search.html', {root: path.join(__dirname, '..', 'views')});
