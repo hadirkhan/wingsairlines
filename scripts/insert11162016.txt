@@ -22,15 +22,6 @@ INSERT into location
 values(4,1,'TX' , 46330);
 
 
-INSERT into aircraft_type_seat_class
-values('Business' , 1 , 25);
-INSERT into aircraft_type_seat_class
-values('Economy' , 1 , 50);
-INSERT into aircraft_type_seat_class
-values('Business' , 2 , 25);
-INSERT into aircraft_type_seat_class
-values('Economy' , 2 , 75);
-
 INSERT into airplane_type
 values(1,75);
 INSERT into airplane_type
@@ -142,8 +133,44 @@ values(3,7);
 INSERT into flight_workdays
 values(4,7);
 
+
+INSERT into aircraft_type_seat_class
+values('Business' , 1 , 25);
+INSERT into aircraft_type_seat_class
+values('Economy' , 1 , 50);
+INSERT into aircraft_type_seat_class
+values('Business' , 2 , 25);
+INSERT into aircraft_type_seat_class
+values('Economy' , 2 , 75);
+
+
+INSERT into aircraft_type_seat_class_codes
+values (1,'Business' ,1);
+INSERT into aircraft_type_seat_class_codes
+values (2,'Economy' ,1);
+INSERT into aircraft_type_seat_class_codes
+values (3,'Business' ,2);
+INSERT into aircraft_type_seat_class_codes
+values (4,'Economy' ,2);
+
+INSERT into person
+values(1,null,'arushee',null,'garg',null,'F',null,1,1,9987504830,null,'arusheegarg@gmail.com','INDIAN');
+INSERT into person
+values(2,null,'aru',null,'garg',null,'M',null,1,1,9887504830,null,'mhadir@pnw.edu','INDIAN');
+
 INSERT into moderator
 values (2,2);
 
+INSERT into passport
+values('ABC123','2018-02-02',1);
+
 INSERT into passenger
 values ('123',1,'ABC123',1,null,1,null);
+
+INSERT into leg_instance
+values ('2016-12-10' ,4,1,760, '2016-12-10 02:00:00','2016-12-10 05:00:00', 25,25,25);
+
+INSERT into leg_instanace_seats
+values (1,1,'2016-12-10',4,1,1 );
+
+
