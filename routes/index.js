@@ -7,7 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/search', function(req, res, next) {
-  res.render('search', { title: 'Flight Search' });
+  res.render('search', { title: 'Search!' });
+});
+
+router.get('/searchoneway', function(req, res, next) {
+  res.render('searchoneway', { title: 'Search!' });
 });
 
 router.get('/payments', function(req, res, next) {
