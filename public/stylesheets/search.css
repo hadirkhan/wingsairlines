@@ -8,309 +8,120 @@ src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
  margin: 0;
  padding: 0;
  }
-.Rectangle {
-  
-  width: 1440px;
-  height: 55px;
-  background-color: #f9f8f6;
-  border: solid 1px #979797;
-  
-}
-.Line {
-	position: absolute;
-	margin-left: 10px;
-    margin-top: -18px;
-    height: 53px;
-    border: solid 1px #d2c7c7;
-}
-.logo {
-  margin-left: 16.3px;
+.S-logo-2 {
+  margin-left: 19.3px;
   margin-top: 5.3px;
-  width: 45.1px;
-  height: 43.4px;
-  background-image: url('/images/shape.svg');  
-}
-.logo1 {
-  margin-left: 6.3px;
-  margin-top: 5.3px;
-  width: 34.1px;
-  height: 37.4px;
-  background-image: url('/images/logo1.png');
+  width: 39.1px;
+  height: 38.4px;
+  background-image: url('/images/shape1.svg');
   background-repeat: no-repeat;
+  margin-top: 21px;
+  background-color: #19707b;
+  border: solid 1px #979797;
 }
-.WingsAirlines {
-  margin-top: -38px;
-  margin-left: 73px;
-  width: 195.5px;
-  height: 33px;
-  font-family: Roboto;
-  color: #19707b;
-  font-size: 25px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-}
-.WingsAirlines1 {
+.S-Payment-Wings-Airlines
+{
   width: 148px;
   height: 20px;
-  margin-top: -33px;
-  margin-left: 63px;
   font-family: Roboto;
   font-size: 15px;
   font-weight: bold;
   font-style: normal;
   font-stretch: condensed;
   color: #ffffff;
-}
-.arrow {
-  margin-left: 248px;
-  margin-top: -28px;
-  width: 34.1px;
-  height: 37.4px;
-  background-image: url('/images/arrow.png');
-  background-repeat: no-repeat;
-}
-.pricearrow {
-	margin-left: 573px;
-  margin-top: -34px;
-  width: 34.1px;
-  height: 37.4px;
-  background-image: url('/images/pricearrow.PNG');
-  background-repeat: no-repeat;
-}
-.-NY {
-  width: 68.7px;
-  height: 40px;
-  margin-top: -29px;
-  margin-left: 177px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  text-align: center;
-  color: #ffffff;
-}
-.-IN {
-  width: 68.7px;
-  height: 40px;
-  margin-top: -49px;
-  margin-left: 290px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  text-align: center;
-  color: #ffffff;
-}
-.amount {
-  width: 68.7px;
-  height: 40px;
-  margin-top: -40px;
-  margin-left: 390px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  text-align: center;
-  color: #ffffff;
-}
-.Login {
-  margin-top: -30px;
-  margin-left: 1217px;
-  width: 60.5px;
-  height: 24px;
-  font-family: Roboto;
-  color: #19707b;
-  font-size: 18px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  cursor: pointer;
-}
-.SignUp {
-  margin-top: -24px;
-  margin-left: 1343px;
-  width: 78.7px;
-  height: 24px;
-  font-family: Roboto;
-  color: #19707b;
-  font-size: 18px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  cursor: pointer;
-}
-.RoundTrip {
-  width: 118.3px;
-  height: 19px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: condensed;
-  color: #f4f4f8;
-}
-.Rectangle-2 {
-  width: 1439.9px;
-  height: 136.1px;
-  background-color: #2b2a2a;
-  border: solid 1px #979797;
-}
-.Chicago {
-  width: 139.2px;
-  height: 26px;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: condensed;
-  color: #130fc6;
-  margin-top: -42px;
-    margin-left: 118px;
-}
-.Fly-In {
-  width: 127.4px;
-  height: 24px;
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: condensed;
-   margin-top: -24px;
-    margin-left: 465px;
+  margin-top: 30px;
 
 }
-.-Adult-Economy {
-  width: 195.5px;
-  height: 24px;
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: condensed;
-}
-.captiondiv{
-  margin-top: 95px;
-  margin-left:374px;
-  width: 330px;
-  height: 62px;
-}
-.Rectangle-4 {
-  width: 1100px;
-  height: 58.3px;
-  background-color: #d8d8d8;
-  border: solid 1px #979797;
-}
-.Edit {
-	    width: 195.5px;
-    height: 60px;
-    background-color: #ecd72d;
-    border: solid 1px #979797;
-    margin-top: -44px;
-    margin-left: 1178px;
+.S-Payment-Departure-Time
+{
     font-family: Roboto;
-    color: #19707b;
-    font-size: 24px;
+    font-size: 15px;
     font-weight: bold;
     font-style: normal;
     font-stretch: condensed;
+    text-align: center;
+    color: #ffffff;
+    width: 95px;
+    margin-left: -15px;
+    margin-top: 18px;
 }
-.Rectangle-13 {
-  width: 1440px;
-  height: 756px;
-  background-color: #d8d8d8;
-  border: solid 1px #979797;
-      /* margin-top: 18;
-    margin-left: 50px; */
+.S-Payment-Arrival-Time
+{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    text-align: center;
+    color: #ffffff;
+    width: 95px;
+    margin-top: 18px;
+    margin-left: 43px;
 }
-.DURATION {
-  width: 112.1px;
+.S-Payment-Amount
+{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    text-align: center;
+    color: #ffffff;
+    width: 95px;
+    margin-top: 19px;
+}
+.S-Return-Payment-Wings-Airlines
+{
+  width: 148px;
   height: 20px;
   font-family: Roboto;
   font-size: 15px;
   font-weight: bold;
   font-style: normal;
   font-stretch: condensed;
-  text-align: center;
-  color: #424141;
-  
+  color: #ffffff;
+  margin-top: 30px;
 }
-.Line2 {
-  width: 132px;
-  height: 2px;
-  border: solid 5px #eaa70d;
+.S-Return-Payment-Departure-Time
+{
+    ffont-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    text-align: center;
+    color: #ffffff;
+    width: 95px;
+    margin-left: -15px;
+    margin-top: 18px;
 }
-.Rectangle-14 {
-  width: 137px;
-  height: 45px;
-  background-color: #ffffff;
-  border: solid 1px #979797;
-  margin-top: 18;
-    margin-left: 50px;
+.S-Return-Payment-Arrival-Time
+{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    text-align: center;
+    color: #ffffff;
+    width: 95px;
+    margin-top: 18px;
+    margin-left: 43px;
 }
-.New-York-to-New-York {
-  width: 396px;
-  height: 26px;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  text-align: center;
-  color: #424141;
+.S-Return-Payment-Amount
+{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    text-align: center;
+    color: #ffffff;
+    width: 95px;
+    margin-top: 19px;
 }
-#leftcolumn, #rightcolumn { 
-    float: left;
-    min-height: 220px;
-    color: white;
-}
-#leftcolumn {
-	border-right: 0.5px solid white;
-	width : 508px
-}
-#rightcolumn {
-	width : 508px;
-	border-right: 0.5px solid white;
-}
-.Shape {
-  width: 140.9px;
-  height: 131.8px;
-  background-color: #ffffff;
-  background-image: url('/images/shape@3x.png');  
-  margin-left:671px;
-  margin-top: 120px
-}
-.Yay-Congratulation {
-  width: 490.1px;
-  height: 64px;
-  font-family: Roboto;
-  font-size: 24px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  text-align: center;
-  color: #0b0b0b;
-  margin-left:480px;
-  margin-top: 40px
-}
-.Rectangle-5 {
-  margin-left: 16.3px;
-  margin-top: 17.3px;
-  width: 46px;
-  height: 45px;
-  background-color: #19707b;
-  border: solid 1px #979797;
-  
-}
-.big-radio {
-    border: 0px;
-    width: 100%;
-    height: 2em;
-}
-.-Total-Amount {
+.S-Total-Amount
+{
   width: 68.5px;
   height: 64px;
   font-family: Roboto;
@@ -320,61 +131,138 @@ src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
   font-stretch: condensed;
   text-align: center;
   color: #ffffff;
+  margin-top: 3px;
+  margin-left: 30px;
 }
-.Book {
-	width: 108px;
-  height: 49.2px;
-  background-color: #ecd72d;
-  border: solid 1px #979797;
+.S-arrow-1 {
+  width: 30.1px;
+  height: 21.4px;
+  background-image: url(/images/arrow.png);
+  background-repeat: no-repeat;
+  margin-top: -30px;
+  margin-left: 85px;
+  background-color: white;
+}
+.S-Rectangle-2 {
+  
+  background-color: #2b2a2a;
+  height: 136.1px;
+  margin-top: -21px;
+}
+.S-Rectangle-3
+{
+  height: 650px;
+  background-color: #d8d8d8;
+}
+.S-Rectangle-4
+{
+  width: 100%;
+  height: 79px;
+  background-color: #4b4b4b;
+}
+.S-Departure-Table
+{
+  margin-left: 10px;
+  margin-top: 42px;
+  background-color: white;
+  width: 100%;
+  height:80px
+
+}
+.S-Search-Row
+{
+  height: 105px;
+}
+.S-search-table-header
+{
+  text-align: center;
+}
+.S-Coloumn-Text 
+{
+  vertical-align: middle;
+}
+.S-logo
+{
+    background-color: #19707b;
+    width: 39.1px;
+    height: 39px;
+    background-image: url(../Images/shape1.svg);
+    background-repeat: no-repeat;
+    border: solid 1px #979797;
+}
+.S-Wings-Airlines
+{
+  width: 148px;
+  height: 20px;
   font-family: Roboto;
-  font-size: 24px;
+  font-size: 15px;
   font-weight: bold;
   font-style: normal;
   font-stretch: condensed;
-  color : #19707b;
-      margin-top: -59px;
-    margin-left: 712px;
+  color: #656565;
+  margin-top: 10px;
+  margin-left: 37px;
 }
-.Rectangle-6 {
-      margin-top: 15px;
-    margin-left: 50px;
-  width: 560px;
-  height: 105px;
-  background-color: #f5eedc;
-  border: solid 1px #979797;
-
-}
-.Rectangle-3 {
-	width: 1440px;
-	height: 81px;
-	background-color: #4b4b4b;
-	border: solid 1px #979797;
-	margin-left: -1px;
-	margin-top: -1px;
-}
-.Rectangle-7 {
-  width: 712px;
-  height: 249px;  
-  margin-top: -249px;
-  margin-left: 313px;
-}
-.Rectangle-8 {
-  width: 1440px;
-  height: 57px;
-  background-color: #575555;
-  border: solid 1px #1d0202;
-  margin-top: 328px
-  
-}
-.exploreLinkLeft {
-  width: 128px;
-  height: 30px;
+.S-Departure-Time
+{
+  width: 68.7px;
+  height: 40px;
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   font-style: normal;
-  font-stretch: normal;
-  color: #f4f4f8;
-  
+  font-stretch: condensed;
+  text-align: center;
+  color: #5a5a5a;
+  margin-left: 92px;
+}
+.S-Arrival-Time
+{
+  width: 68.7px;
+  height: 40px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: condensed;
+  text-align: center;
+  color: #5a5a5a;
+  margin-left: 37px;
+}
+.S-big-radio-2
+{
+  transform: scale(2);
+}
+.S-Departure-Text
+{
+  padding-top: 15px;
+  margin-left: 115px;
+  width: 415px;
+  height: 26px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: condensed;
+  text-align: center;
+  color: #424141;
+}
+.S-big-radio {
+    border: 0px;
+    width: 100%;
+    height: 2em;
 }
 
+.S-Price-label
+{
+  width: 68.7px;
+  height: 26px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: condensed;
+  text-align: center;
+  color: #9d0d0d;
+  padding-left: 5px;
+}
