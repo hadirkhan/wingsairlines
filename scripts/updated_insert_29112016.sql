@@ -98,40 +98,47 @@ INSERT into fare
 values(9,9,300);
 
 INSERT into flight
-values(1, 0);
+values('ABC', 1);
 INSERT into flight
-values(2, 0);
+values('DEF', 1);
 INSERT into flight
-values(3, 0);
-INSERT into flight
-values(4, 1);
+values('XYZ', 2);
+
 
 INSERT into flight_leg
-values(1,4,3,'2013-08-05 15:00:03','2013-08-05 17:00:03',2);
+values(1,'XYZ',1,'2016-12-10 15:00:00','2016-12-10 17:00:00',2);
+
+DELETE from flight_leg
+where flight_no = 'XYZ';
 
 
+
 INSERT into flight_workdays
-values(1,1);
+values('ABC',1);
 INSERT into flight_workdays
-values(1,2);
+values('ABC',2);
 INSERT into flight_workdays
-values(2,1);
+values('ABC',3);
 INSERT into flight_workdays
-values(2,2);
+values('ABC',4);
 INSERT into flight_workdays
-values(3,2);
+values('DEF',1);
 INSERT into flight_workdays
-values(4,2);
+values('DEF',2);
 INSERT into flight_workdays
-values(4,4);
+values('XYZ',1);
 INSERT into flight_workdays
-values(1,7);
+values('XYZ',2);
 INSERT into flight_workdays
-values(2,7);
+values('XYZ',3);
 INSERT into flight_workdays
-values(3,7);
+values('XYZ',4);
 INSERT into flight_workdays
-values(4,7);
+values('XYZ',5);
+INSERT into flight_workdays
+values('XYZ',6);
+INSERT into flight_workdays
+values('XYZ',7);
 
 
 INSERT into aircraft_type_seat_class
@@ -153,22 +160,16 @@ values (3,'Business' ,2);
 INSERT into aircraft_type_seat_class_codes
 values (4,'Economy' ,2);
 
-INSERT into person
-values(1,null,'arushee',null,'garg',null,'F',null,1,1,9987504830,null,'arusheegarg@gmail.com','INDIAN');
-INSERT into person
-values(2,null,'aru',null,'garg',null,'M',null,1,1,9887504830,null,'mhadir@pnw.edu','INDIAN');
-
-INSERT into moderator
-values (2,2);
-
-INSERT into passport
-values('ABC123','2018-02-02',1);
-
-INSERT into passenger
-values ('123',1,'ABC123',1,null,1,null);
-
 INSERT into leg_instance
-values ('2016-12-10' ,4,1,760, '2016-12-10 02:00:00','2016-12-10 05:00:00', 25,25,25);
+values ('2016-12-10' ,'XYZ',1,760, '2016-12-10 02:00:00','2016-12-10 05:00:00', 50,null,25);
 
 INSERT into leg_instanace_seats
-values (1,1,'2016-12-10',4,1,1 );
+values (1,1,'2016-12-10','XYZ',1,0 );
+INSERT into leg_instanace_seats
+values (2,1,'2016-12-10','XYZ',1,0 );
+INSERT into leg_instanace_seats
+values (3,2,'2016-12-10','XYZ',1,0 );
+INSERT into leg_instanace_seats
+values (4,2,'2016-12-10','XYZ',1,0 );
+
+
