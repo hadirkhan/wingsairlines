@@ -108,11 +108,6 @@ values('XYZ', 2);
 INSERT into flight_leg
 values(1,'XYZ',1,'2016-12-10 15:00:00','2016-12-10 17:00:00',2);
 
-DELETE from flight_leg
-where flight_no = 'XYZ';
-
-
-
 INSERT into flight_workdays
 values('ABC',1);
 INSERT into flight_workdays
