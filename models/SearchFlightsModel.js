@@ -1,4 +1,4 @@
-var dbutil = require('../utilities/DBConnectionUtility.js');
+var dbutil = require('../utilities/DatabaseConnectionUtility.js');
 
 function searchFlights(flightType, fromDest, toDest, departureDate, returnDate, numOfPassengers){
 
