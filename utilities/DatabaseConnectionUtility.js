@@ -1,9 +1,9 @@
 var mysql = require('mysql');
  
 console.log('dev properties: \n', 
-  process.env.DEV_DATABASE_URL, '\n', 
-  process.env.DEV_DATABASE_USERNAME, '\n', 
-  process.env.DEV_DATABASE_PASSWORD, '\n',
+  process.env.DEV_DB_URL, '\n', 
+  process.env.DEV_DB_USERNAME, '\n', 
+  process.env.DEV_DB_PASSWORD, '\n',
   process.env.DATABASE_NAME
 );
 
