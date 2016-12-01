@@ -1,12 +1,15 @@
 var express = require('express');
-var path = require('path');
 var router = express.Router();
+var path = require('path');
+
+var searchModule = require('../models/SearchFlightsModel.js');
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Wings-Welcome!' });
 });
 
 router.get('/search', function(req, res, next) {
+  searchModule.searchFlights();
   res.render('search', { title: 'Flight Search' });
 });
 
