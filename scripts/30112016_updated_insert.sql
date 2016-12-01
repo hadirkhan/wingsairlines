@@ -3,7 +3,7 @@ INSERT into countries
 values(1,'USA', 'US');
 
 INSERT into cities
-values(1 , 1 , 'Chicago' , 'CHI');
+values(1 , 1 , 'Chicago' , 'CH');
 INSERT into cities
 values(2 , 1 , 'New York' , 'NY');
 INSERT into cities
@@ -33,14 +33,13 @@ INSERT into airplane
 values(820 , 2);
 
 INSERT into airport
-values(1,1,1,'Chicago' , POINT(10,80));
+values(1,1,1,'O-Hare' , POINT(10,80));
 INSERT into airport
-values(2,2,1,'New York' , POINT(10,80));
+values(2,2,1,'JFK' , POINT(10,80));
 INSERT into airport
-values(3,3,1,'San Francisco' , POINT(10,80));
+values(3,3,1,'SFO' , POINT(10,80));
 INSERT into airport
-values(4,4,1,'Texas' , POINT(10,80));
-
+values(4,4,1,'DFW' , POINT(10,80));
 
 INSERT into weekdays
 values(1, 'Sunday');
@@ -106,7 +105,13 @@ values('XYZ', 2);
 
 
 INSERT into flight_leg
+values(1,'ABC',1,'2016-12-10 15:00:00','2016-12-10 17:00:00',2);
+INSERT into flight_leg
+values(1,'DEF',4,'2016-12-12 15:00:00','2016-12-12 17:00:00',2);
+INSERT into flight_leg
 values(1,'XYZ',1,'2016-12-10 15:00:00','2016-12-10 17:00:00',2);
+INSERT into flight_leg
+values(2,'XYZ',5,'2016-12-10 19:00:00','2016-12-10 21:00:00',2);
 
 INSERT into flight_workdays
 values('ABC',1);
@@ -155,8 +160,37 @@ values (3,'Business' ,2);
 INSERT into aircraft_type_seat_class_codes
 values (4,'Economy' ,2);
 
+
 INSERT into leg_instance
-values ('2016-12-10' ,'XYZ',1,760, '2016-12-10 02:00:00','2016-12-10 05:00:00', 50,null,25);
+values ('2016-12-10' ,'ABC',1,760, '2016-12-10 15:00:00','2016-12-10 17:00:00', 50,null,25);
+
+INSERT into leg_instance
+values ('2016-12-12' ,'DEF',1,760, '2016-12-12 15:00:00','2016-12-12 17:00:00', 50,null,25);
+
+INSERT into leg_instance
+values ('2016-12-10' ,'XYZ',1,760, '2016-12-10 15:00:00','2016-12-10 17:00:00', 50,null,25);
+
+INSERT into leg_instance
+values ('2016-12-10' ,'XYZ',2,760, '2016-12-10 19:00:00','2016-12-10 21:00:00', 50,null,25);
+
+
+INSERT into leg_instanace_seats
+values (1,1,'2016-12-10','ABC',1,0 );
+INSERT into leg_instanace_seats
+values (2,1,'2016-12-10','ABC',1,0 );
+INSERT into leg_instanace_seats
+values (3,2,'2016-12-10','ABC',1,0 );
+INSERT into leg_instanace_seats
+values (4,2,'2016-12-10','ABC',1,0 );
+
+INSERT into leg_instanace_seats
+values (1,1,'2016-12-12','DEF',1,0 );
+INSERT into leg_instanace_seats
+values (2,1,'2016-12-12','DEF',1,0 );
+INSERT into leg_instanace_seats
+values (3,2,'2016-12-12','DEF',1,0 );
+INSERT into leg_instanace_seats
+values (4,2,'2016-12-12','DEF',1,0 );
 
 INSERT into leg_instanace_seats
 values (1,1,'2016-12-10','XYZ',1,0 );
@@ -167,4 +201,12 @@ values (3,2,'2016-12-10','XYZ',1,0 );
 INSERT into leg_instanace_seats
 values (4,2,'2016-12-10','XYZ',1,0 );
 
+INSERT into leg_instanace_seats
+values (1,1,'2016-12-10','XYZ',2,0 );
+INSERT into leg_instanace_seats
+values (2,1,'2016-12-10','XYZ',2,0 );
+INSERT into leg_instanace_seats
+values (3,2,'2016-12-10','XYZ',2,0 );
+INSERT into leg_instanace_seats
+values (4,2,'2016-12-10','XYZ',2,0 );
 
