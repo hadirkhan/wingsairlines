@@ -7,19 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/search', function(req, res, next) {
-<<<<<<< HEAD
   res.render('search', { title: 'Flight Search' });
-});
-
-=======
-  res.render('search', { title: 'Search!' });
 });
 
 router.get('/searchoneway', function(req, res, next) {
   res.render('searchoneway', { title: 'Search!' });
 });
 
->>>>>>> 9668f22f528fda5282460d46c73011382dbc5326
 router.get('/payments', function(req, res, next) {
   res.render('payments', { title: 'Payments' });
 });
