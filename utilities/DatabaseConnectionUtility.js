@@ -6,7 +6,7 @@ var dbConfig = process.env.CLEARDB_DATABASE_URL || {
   host: process.env.DEV_DB_URL,
   user: process.env.DEV_DB_USERNAME,
   password: process.env.DEV_DB_PASSWORD,
-  database: process.env.DATABASE_NAME
+  database: process.env.DEV_DB_NAME
 };
 
 function connectToDatabase(){

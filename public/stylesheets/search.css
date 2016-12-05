@@ -186,7 +186,7 @@ src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
     background-color: #19707b;
     width: 39.1px;
     height: 39px;
-    background-image: url(../Images/shape1.svg);
+    background-image: url(../images/shape1.svg);
     background-repeat: no-repeat;
     border: solid 1px #979797;
 }

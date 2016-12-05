@@ -25,20 +25,16 @@ block content
             span(style="font-size:14px; margin-top: 5px;") From:
             br
             select.form-control(style="width: 115px; margin-left: 4px;")
-              option(selected="true", value='Chicago') Chicago
-              option(value='Newyork') Newyork
-              option(value='Indiana') Indiana
-              option(value='Mumbai') Mumbai
+              each value, key in data
+                option(value='#{key}') #{value}
           //-div.search-form-separator(style="left: 190px")
           
           div.col-md-1.search-box-item(style="margin-left: 85px;")
             span(style="font-size:14px; margin-top: 5px;") To:
             br
             select.form-control(style="width: 115px; margin-left: 4px;")
-              option(value='Chicago') Chicago
-              option(selected="true", value='Newyork') Newyork
-              option(value='Indiana') Indiana
-              option(value='Mumbai') Mumbai
+              each value, key in data
+                option(value='#{key}') #{value}
           //-div.search-form-separator(style="left: 350px")
           
           div.col-md-2.search-box-item(style="margin-left: 65px;")
