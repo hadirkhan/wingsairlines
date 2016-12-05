@@ -4,6 +4,8 @@ var path = require('path');
 
 var searchModule = require('../models/SearchFlightsModel.js');
 
+var paymentsModule = require('../models/PaymentsModel.js');
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Wings-Welcome!' });
 });
@@ -18,6 +20,7 @@ router.get('/searchoneway', function(req, res, next) {
 });
 
 router.get('/payments', function(req, res, next) {
+  // paymentsModule.paymentdetails();
   res.render('payments', { title: 'Payments' });
 });
 
