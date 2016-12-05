@@ -3,11 +3,18 @@ var router = express.Router();
 var path = require('path');
 
 var searchModule = require('../models/SearchFlightsModel.js');
-
-var paymentsModule = require('../models/PaymentsModel.js');
+var homepageModule = require('../models/homepage.js')
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Wings-Welcome!' });
+  homepageModule.searchFlights(handleResults);
+  function handleResults(err, data){
+  	if(err){
+  		throw err;
+  	}else if (data){
+  		console.log('data: ', data);
+  		res.render('index', { title: 'Wings-Welcome!' , data});
+  	}
+  } 
 });
 
 router.get('/search', function(req, res, next) {
@@ -20,7 +27,6 @@ router.get('/searchoneway', function(req, res, next) {
 });
 
 router.get('/payments', function(req, res, next) {
-  // paymentsModule.paymentdetails();
   res.render('payments', { title: 'Payments' });
 });
 
@@ -28,9 +34,6 @@ router.get('/confirmation', function(req, res, next){
   res.render('confirmation', { title: 'Confirmation' });
 });
 
-router.get('/pnr', function(req, res, next){
-  res.render('pnr', { title: 'Check PNR' });
-});
 router.get('/about', function(req, res, next){
   res.render('about', {title: 'About Us'});
 });
