@@ -1,9 +1,17 @@
 extends ./templates/main.jade
 
-block content
-  - var toPrice = 500; var fromPrice = 900;
-  
+block content  
   include ./templates/navbar.jade
   
   div.container
     div
+      div.logo-central
+      div.cofirmation-text-msg 
+        | Check and Downlod Your Booking Here
+   div.container
+     input.p-box(type='text', name='PNR', placeholder='PNR Number' required)(style='margin-left:480px ; margin-top:20px')
+     div
+       div#p-continue1.col-sm-2.col-md-2.col-lg-2
+         button.btn.btn-warning.btn-md.p-rectangle-5(style='margin-left:480px; margin-top:20px')
+           label.p-continue Download 
+   div(style='height:200px' )  

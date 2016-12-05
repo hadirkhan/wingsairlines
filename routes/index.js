@@ -25,6 +25,9 @@ router.get('/confirmation', function(req, res, next){
   res.render('confirmation', { title: 'Confirmation' });
 });
 
+router.get('/pnr', function(req, res, next){
+  res.render('pnr', { title: 'Check PNR' });
+});
 router.get('/about', function(req, res, next){
   res.render('about', {title: 'About Us'});
 });
