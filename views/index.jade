@@ -24,25 +24,25 @@ block content
           div.col-md-1.search-box-item(style="")
             span(style="font-size:14px; margin-top: 5px;") From:
             br
-            select.form-control(style="width: 115px; margin-left: 4px;")
+            select.form-control(style="width: 143px; margin-left: 4px;")
               each value, key in data
                 option(value='#{key}') #{value}
           //-div.search-form-separator(style="left: 190px")
           
-          div.col-md-1.search-box-item(style="margin-left: 85px;")
+          div.col-md-1.search-box-item(style="margin-left: 102px;")
             span(style="font-size:14px; margin-top: 5px;") To:
             br
-            select.form-control(style="width: 115px; margin-left: 4px;")
+            select.form-control(style="width: 143px; margin-left: 4px;")
               each value, key in data
                 option(value='#{key}') #{value}
           //-div.search-form-separator(style="left: 350px")
           
-          div.col-md-2.search-box-item(style="margin-left: 65px;")
+          div.col-md-2.search-box-item(style="margin-left: 90px;")
             span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
             input#departDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
           //-div.search-form-separator(style="left: 535px")
 
-          div.col-md-2.search-box-item
+          div.col-md-2.search-box-item(style='margin-left:-15px')
             span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
             input#returnDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
           //-div.search-form-separator(style="left: 720px")
@@ -62,7 +62,7 @@ block content
               span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
 
           div#btn-search(style="float: right")
-            button.btn.btn-warning(style="margin-top: 15px", type="button")
+            button.btn.btn-warning(style="margin-top: -61px", type="button")
                 a(href="/search", style="color:white") Search
   div.row(style="width: 100%; margin-top: 15px; padding-bottom: 50px;")
     div.col-md-4(style="background-color: #fbfafa; border-right: 1px solid #e3e3e3;") 
