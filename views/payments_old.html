@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/payments.css">
+        <link rel='stylesheet', type='text/css', href='/stylesheets/vendors/jquery-ui.css'>
+        <script type="text/javascript" src='/js/jquery-3.1.1.min.js'></script>
+        <script type="text/javascript" src='/js/jquery-ui.min.js'></script>
+    </head>
+    <body>
+        <form>
+            <div class="Rectangle">
+                <div class="logo"></div>
+                <div class="WingsAirlines">WingsAirlines <span class="Line" style="margin-top: -11px;" /></div>
+                <div class="Login">Login<span class="Line" style="margin-left:36px;margin-top: -14px;"></span>
+                    <span class="Line" style="margin-left:-85px;margin-top: -14px;"></span>
+                </div>
+                <div class="SignUp">SignUp</div>
+            </div>
+            <div class="rectangle-2">
+                <div class="flightdetails">Flight Details</div>
+                <!-- <input type="text" /> -->
+            </div>
+            <div class="rectangle-3">
+                <div class="departure">DEPARTURE</div>
+                <div class="rectangle-4">
+                    <div class="datetimetitle">10 Oct 2016, Mon</div>
+                    <div class="wings_airlines_logo"><span class="wings_airlines">WingsAirlines</span></div>
+                    <div class="source">02:00<br />NY<br/> New York </div>
+                    <div class="arrow"></div>
+                    <div class="destination">04:00<br />IN<br/> Indiana </div>
+                    <div class="econo">2h 5m <br/> Non Stop <br/> Economy</div>
+                    <div class="amount"><span class="rate">$ 100</span> <br /><span class="titeleAmount">Amount</span></div>
+                </div>
+                <div class="departure">RETURN</div>
+                <div class="rectangle-4">
+                    <div class="datetimetitle">10 Oct 2016, Mon</div>
+                    <div class="wings_airlines_logo"><span class="wings_airlines">WingsAirlines</span></div>
+                    <div class="source">04:00<br />IN<br/> Indiana</div>
+                    <div class="arrow"></div>
+                    <div class="destination">02:00<br />NY<br/> New York</div>
+                    <div class="econo">2h 5m <br/> Non Stop <br/> Economy</div>
+                    <div class="amount"><span class="rate">$ 100</span><br /><span class="titeleAmount">Amount</span></div>
+                </div>
+            </div>
+            <div class="totalamount">Total Amount<br/> $ 200</div>
+            <div class="rectangle-5" id = "continue1">
+                <div class="continue" >Continue </div>
+            </div>
+            `
+            <div class="passengerDetails">
+                <div class="rectangle-6">
+                    <div class="detailsTitle" >Passenger Details</div>
+                </div>
+                <div class="personalDetails">
+                    <div class="details" style="margin-top: 20px; margin-left: 30px;">Adult 1 :</div>
+                    <div class="box" style="margin-top: -24px; margin-left: 177.5px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">First Name</div>-->
+                        <input class="box" type="text" name="firstname" placeholder="First Name">
+                    </div>
+                    <div class="box" style="margin-top: -37px; margin-left: 560px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Last Name</div>-->
+                        <input class="box" type="text" name="lastname" placeholder="Last Name">
+                    </div>
+                    <div class="box1" style="margin-top: 10px; margin-left: 177.5px;">
+                        <div class="female" style="margin-top: 9px; margin-left: 62px;">FEMALE</div>
+                    </div>
+                    <div class="box1" style="margin-top: -37px; margin-left: 354.5px;">
+                        <div class="female" style="margin-top: 9px; margin-left: 62px;" >MALE</div>
+                    </div>
+                    <div class="box" style="margin-top: -37px; margin-left: 560px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Age</div>-->
+                        <input class="box" type="text" name="age" placeholder="Age">
+                    </div>
+                </div>
+                <div class="contactDetails">
+                    <div class="details" style="margin-top: 20px; margin-left: 30px;">Contact Details :</div>
+                    <div class="box" style="margin-top: -24px; margin-left: 177.5px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Mobile Number</div>-->
+                        <input class="box" type="text" name="mobilenumber" placeholder="Mobile Number">
+                    </div>
+                    <div class="box" style="margin-top: 10px; margin-left: 177.5px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Email Address</div>-->
+                        <input class="box" type="text" name="email" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="rectangle-7" id = "makepayment">
+                    <div class="makePayment" >Make Payment </div>
+                </div>
+            </div>
+            <div class="paymentDetails">
+                <div class="rectangle-6">
+                    <div class="detailsTitle" >Payment Details</div>
+                </div>
+                <div class="cardDetails">
+                    <div class="details" style="margin-top: 20px; margin-left: 30px;">Card Holder Details :</div>
+                    <div class="box" style="margin-top: -24px; margin-left: 177.5px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Card Holder Name</div>-->
+                        <input class="box" type="text" name="cardholdername" placeholder="Card Holder Name">
+                    </div>
+                    <div class="box" style="margin-top: 10px; margin-left: 177.5px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Card Type</div>-->
+                        <input class="box" type="text" name="cardtype" placeholder="Card Type">
+                    </div>
+                    <div class="box" style="margin-top: 10px; margin-left: 177.5px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Card Number</div>-->
+                        <input class="box" type="text" name="cardnumber" placeholder="Card Number">
+                    </div>
+                    <div class="box" style="margin-top: 10px; margin-left: 177.5px;">
+                        <!--<div class="number" style="margin-top: 9px; margin-left: 15px;">Billing Address</div>-->
+                        <input class="box" type="text" name="billing" placeholder="Billing Address">
+                    </div>
+                </div>
+                <div class="rectangle-9" id = "pay">
+                    <div class="Pay"><a style="color: white" href="/confirmation">Pay</a></div>
+                </div>
+            </div>
+            <div class="Rectangle-8">
+                <div class="exploreLinkLeft" style="margin-top: 12px; margin-left: 29px; ">Most visited  <br />destinations</div>
+                <div class="exploreLinkLeft" style="margin-top: -30px; margin-left: 170px; " >Low   Budget  <br />Destinations</div>
+                <div class="exploreLinkLeft" style="margin-top: -30px; margin-left: 320px; " >Weekend <br />Gateways</div>
+                <div class="exploreLinkLeft" style="margin-top: -26px; margin-left: 1015px; font-size: 18px" >Careers</div>
+                <div class="exploreLinkLeft" style="margin-top: -30px; margin-left: 1160px; font-size: 18px">About Us</div>
+                <div class="exploreLinkLeft" style="margin-top: -30px; margin-left: 1300px; font-size: 18px">Contact Us</div>
+            </div>
+            <script>
+                $("#continue1").on("click", function(){
+                    $(".totalamount").css('display','none');
+                    $(".rectangle-5").css('display','none');
+                    $(".passengerDetails").css('display','block');  
+                });
+                $("#makepayment").on("click", function(){
+                    $(".rectangle-7").css('display','none');
+                    $(".paymentDetails").css('display','block');    
+                });
+            </script>
+        </form>
+    </body>
+</html>
