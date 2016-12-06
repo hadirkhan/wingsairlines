@@ -4,8 +4,8 @@ const path = require('path');
 const JourneyTypeEnum = require('../utilities/JourneyTypeEnum');
 
 
-var searchModule = require('../models/SearchFlightsModel.js');
-var homepageModule = require('../models/homepage.js')
+var searchModule = require('../models/SearchFlightsModel');
+var homepageModule = require('../models/HomePageModel');
 
 router.get('/', function(req, res, next) {
   homepageModule.searchFlights(handleResults);
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   	if(err){
   		throw err;
   	}else if (data){
-  		res.render('index', { title: 'Wings-Welcome!' , data});
+  		res.render('index', { title: 'Wings-Welcome!' , data: data});
   	}
   }
 });

@@ -27,25 +27,21 @@ block content
             select.form-control(name="departureAirportCode", style="width: 143px; margin-left: 4px;")
               each value, key in data
                 option(value='#{key}') #{value}
-          //-div.search-form-separator(style="left: 190px")
-          
+
           div.col-md-1.search-box-item(style="margin-left: 102px;")
             span(style="font-size:14px; margin-top: 5px;") To:
             br
             select.form-control(name="destinationAirportCode", style="width: 143px; margin-left: 4px;")
               each value, key in data
                 option(value='#{key}') #{value}
-          //-div.search-form-separator(style="left: 350px")
-          
+
           div.col-md-2.search-box-item(style="margin-left: 90px;")
             span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
             input#departDate.form-control(name="departDate", style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
-          //-div.search-form-separator(style="left: 535px")
 
           div.col-md-2.search-box-item(style='margin-left:-15px')
             span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
             input#returnDate.form-control(name="returnDate", style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
-          //-div.search-form-separator(style="left: 720px")
 
           div.col-md-2.search-box-item
             span(style="font-size:14px; margin-top: 5px;") Adult
@@ -62,7 +58,8 @@ block content
               span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
 
           div#btn-search(style="float: right")
-            input.btn.btn-warning(style="margin-top: 15px", type="submit", value="Search")
+            input.btn.btn-warning(style="margin-top: -58px; margin-right: -5px;", type="submit", value="Search")
+
   div.row(style="width: 100%; margin-top: 15px; padding-bottom: 50px;")
     div.col-md-4(style="background-color: #fbfafa; border-right: 1px solid #e3e3e3;")
       h4(style="font-weight: bold; text-align: center") Explore the Right Destinations

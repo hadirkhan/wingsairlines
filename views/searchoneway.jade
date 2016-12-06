@@ -55,35 +55,41 @@ block content
         div.container
             div.col-md-12
                 div.S-Departure-Text #{results.departingCityName[0].city_name} to #{results.arrivingCityName[0].city_name} - #{results.formattedDepartureDate}
-                table.S-Departure-Table.table.table-hover.sortable(cellspacing='10')
-                    thead
-                        th.S-search-table-header
-                        th.S-search-table-header Flight No.
-                        th.S-search-table-header(style="text-align: center;width:19%;padding-left: 105px;") Departure Time
-                        th.S-search-table-header(style="width:25%;") Arrival Time
-                        th.S-search-table-header(style="width:25%;") Duration
-                        th.S-search-table-header(style="padding-left:41px;text-align: start;") Price
-                    tbody
-                        each item, key in results.oneWayFlights
-                            tr.S-Search-Row
-                                td.S-Coloumn-Text(style="vertical-align:middle;")
-                                    div.col-md-1
-                                        input.flightselect1.S-big-radio-2(type='radio', name='departure-flight')
-                                td.S-Coloumn-Text(style="vertical-align:middle;")
-                                    div.col-md-1.S-logo
-                                        div.S-Wings-Airlines= item.flight_no
-                                td.S-Coloumn-Text(style="vertical-align:middle;")
-                                    div.col-md-1
-                                        div.S-Departure-Time= item.formattedDepartTime
-                                td.S-Coloumn-Text(style="vertical-align:middle;")
-                                    div.col-md-1
-                                        div.S-Arrival-Time= item.formattedArrivalTime
-                                td.S-Coloumn-Text(style="vertical-align:middle;")
-                                    div.col-md-1
-                                        div.S-Leg-Duration-Time= item.formattedLegDuration
-                                td.S-Coloumn-Text(style="vertical-align:middle;")
-                                    div.col-md-1
-                                        div.S-Price-label $ #{item.fare}
+                if results.oneWayFlights.length == 0
+                    div.alert.alert-danger(style="margin-top: 65px; font-size: 18px;")
+                        |Sorry, no results found.
+                        br
+                        |Maybe changing the dates would help!
+                else
+                    table.S-Departure-Table.table.table-hover.sortable(cellspacing='10')
+                        thead
+                            th.S-search-table-header
+                            th.S-search-table-header Flight No.
+                            th.S-search-table-header(style="text-align: center;width:19%;padding-left: 105px;") Departure Time
+                            th.S-search-table-header(style="width:25%;") Arrival Time
+                            th.S-search-table-header(style="width:25%;") Duration
+                            th.S-search-table-header(style="padding-left:41px;text-align: start;") Price
+                        tbody
+                            each item, key in results.oneWayFlights
+                                tr.S-Search-Row
+                                    td.S-Coloumn-Text(style="vertical-align:middle;")
+                                        div.col-md-1
+                                            input.flightselect1.S-big-radio-2(type='radio', name='departure-flight')
+                                    td.S-Coloumn-Text(style="vertical-align:middle;")
+                                        div.col-md-1.S-logo
+                                            div.S-Wings-Airlines= item.flight_no
+                                    td.S-Coloumn-Text(style="vertical-align:middle;")
+                                        div.col-md-1
+                                            div.S-Departure-Time= item.formattedDepartTime
+                                    td.S-Coloumn-Text(style="vertical-align:middle;")
+                                        div.col-md-1
+                                            div.S-Arrival-Time= item.formattedArrivalTime
+                                    td.S-Coloumn-Text(style="vertical-align:middle;")
+                                        div.col-md-1
+                                            div.S-Leg-Duration-Time= item.formattedLegDuration
+                                    td.S-Coloumn-Text(style="vertical-align:middle;")
+                                        div.col-md-1
+                                            div.S-Price-label $ #{item.fare}
     div.row(style="margin-right:0px")
         div.col-md-10
             div.S-Rectangle-4
