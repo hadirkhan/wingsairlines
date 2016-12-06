@@ -227,7 +227,20 @@ src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
   font-stretch: condensed;
   text-align: center;
   color: #5a5a5a;
-  margin-left: 37px;
+  margin-left: 80px;
+}
+.S-Leg-Duration-Time
+{
+    width: 68.7px;
+    height: 40px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    text-align: center;
+    color: #5a5a5a;
+    margin-left: 80px;
 }
 .S-big-radio-2
 {
@@ -235,9 +248,7 @@ src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
 }
 .S-Departure-Text
 {
-  padding-top: 15px;
-  margin-left: 115px;
-  width: 415px;
+  padding-top: 20px;
   height: 26px;
   font-family: Roboto;
   font-size: 20px;

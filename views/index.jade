@@ -1,16 +1,16 @@
 extends ./templates/main.jade
 
 block content
-  
+
   include ./templates/navbar.jade
-  
+
   div
     img.main-img-banner(src="/images/background.jpg")
     div.banner-big-text Come. Fly. Explore with Us!
     div.banner-small-text Fly with WingsAirlines
     div.col-md-12.black-overlay
   div.container
-    form#search-form
+    form#search-form(name="searchForm", action="/search", method="post")
       div.row.radio-trip-type
         div.col-md-6
           div.col-md-3
@@ -24,7 +24,7 @@ block content
           div.col-md-1.search-box-item(style="")
             span(style="font-size:14px; margin-top: 5px;") From:
             br
-            select.form-control(style="width: 143px; margin-left: 4px;")
+            select.form-control(name="departureAirportCode", style="width: 143px; margin-left: 4px;")
               each value, key in data
                 option(value='#{key}') #{value}
           //-div.search-form-separator(style="left: 190px")
@@ -32,40 +32,39 @@ block content
           div.col-md-1.search-box-item(style="margin-left: 102px;")
             span(style="font-size:14px; margin-top: 5px;") To:
             br
-            select.form-control(style="width: 143px; margin-left: 4px;")
+            select.form-control(name="destinationAirportCode", style="width: 143px; margin-left: 4px;")
               each value, key in data
                 option(value='#{key}') #{value}
           //-div.search-form-separator(style="left: 350px")
           
           div.col-md-2.search-box-item(style="margin-left: 90px;")
             span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
-            input#departDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
+            input#departDate.form-control(name="departDate", style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
           //-div.search-form-separator(style="left: 535px")
 
           div.col-md-2.search-box-item(style='margin-left:-15px')
             span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
-            input#returnDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
+            input#returnDate.form-control(name="returnDate", style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
           //-div.search-form-separator(style="left: 720px")
 
           div.col-md-2.search-box-item
             span(style="font-size:14px; margin-top: 5px;") Adult
-            div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+            div(style="display: inline-flex; margin-left: 5px;")
               span#adultCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
-              span#adultCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 1
+              input#adultCount.form-control(name="adultCount", type="text", readonly="true", value="1", style="margin: 0px 5px 0px 5px; width: 40%; padding-right: 10px; text-align: center;")
               span#adultCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
 
-          div.col-md-2.search-box-item(style="margin-left: -60px;")
+          div.col-md-2.search-box-item(style="margin-left: -40px;")
             span(style="font-size:14px; margin-top: 5px;") Children
-            div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+            div(style="display: inline-flex; margin-left: 5px;")
               span#childCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
-              span#childCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 1
+              input#childCount.form-control(name="childCount", readonly="true", type="text", value="0", style="margin: 0px 5px 0px 5px; width: 40%; padding-right: 10px; text-align: center;")
               span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
 
           div#btn-search(style="float: right")
-            button.btn.btn-warning(style="margin-top: -61px", type="button")
-                a(href="/search", style="color:white") Search
+            input.btn.btn-warning(style="margin-top: 15px", type="submit", value="Search")
   div.row(style="width: 100%; margin-top: 15px; padding-bottom: 50px;")
-    div.col-md-4(style="background-color: #fbfafa; border-right: 1px solid #e3e3e3;") 
+    div.col-md-4(style="background-color: #fbfafa; border-right: 1px solid #e3e3e3;")
       h4(style="font-weight: bold; text-align: center") Explore the Right Destinations
       div(style="padding: 15px 0px 0px 55px;")
         form#rightDestinationForm
@@ -97,40 +96,58 @@ block content
     div.col-md-8.see-more-dest See More Destinations
 
 block append scripts
-    script.
+  script.
       window.onload = function(){
-        var datePickerOptions = {
-          changeMonth: true,
-          changeYear: true,
-          minDate: '0D',
-        }
-        $('#departDate').datepicker(datePickerOptions);
-        $('#returnDate').datepicker(datePickerOptions);
 
-        $('#adultCountMinus').on('click', function(){
-            var count = parseInt($('#adultCount').text());
-            if(count && count > 1) {
-                $('#adultCount').text(count - 1);
-            }
-        });
-        $('#adultCountPlus').on('click', function(){
-            var count = parseInt($('#adultCount').text());
-            if(count && count < 9) {
-                $('#adultCount').text(count + 1);
-            }
-        });
+          $('#radio-trip-round').on('change', function(){
+              $('#returnDate').attr('disabled', false);
+          });
 
-        $('#childCountMinus').on('click', function(){
-            var count = parseInt($('#childCount').text());
-            if(count && count > 1) {
-                $('#childCount').text(count - 1);
-            }
-        });
-        $('#childCountPlus').on('click', function(){
-            var count = parseInt($('#childCount').text());
-            if(count && count < 9) {
-                $('#childCount').text(count + 1);
-            }
-        });
+          $('#radio-trip-oneway').on('change', function(){
+              $('#returnDate').attr('disabled', true);
+          });
+
+          var datePickerOptions = {
+              dateFormat: 'yy-mm-dd',
+              changeMonth: true,
+              changeYear: true,
+              minDate: '0D'
+          };
+
+          $('#departDate').datepicker(datePickerOptions);
+          $('#departDate').datepicker('setDate', "+7");
+          $('#returnDate').datepicker(datePickerOptions);
+          $('#returnDate').datepicker('setDate', "+14");
+
+          $('#departDate').on('change', function () {
+              var departDate = $('#departDate').datepicker('getDate');
+              $('#returnDate').datepicker('option', 'minDate', departDate);
+          });
+
+          $('#adultCountMinus').on('click', function(){
+              var count = parseInt($('#adultCount').val());
+              if(count > 1) {
+                  $('#adultCount').val(count - 1);
+              }
+          });
+          $('#adultCountPlus').on('click', function(){
+              var count = parseInt($('#adultCount').val());
+              if(count < 9) {
+                  $('#adultCount').val(count + 1);
+              }
+          });
+
+          $('#childCountMinus').on('click', function(){
+              var count = parseInt($('#childCount').val());
+              if(count > 1) {
+                  $('#childCount').val(count - 1);
+              }
+          });
+          $('#childCountPlus').on('click', function(){
+              var count = parseInt($('#childCount').val());
+              if(count < 9) {
+                  $('#childCount').val(count + 1);
+              }
+          });
       }
 

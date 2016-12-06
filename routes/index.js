@@ -1,6 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+const JourneyTypeEnum = require('../utilities/JourneyTypeEnum');
+
 
 var searchModule = require('../models/SearchFlightsModel.js');
 var homepageModule = require('../models/homepage.js')
@@ -11,31 +13,41 @@ router.get('/', function(req, res, next) {
   	if(err){
   		throw err;
   	}else if (data){
-  		console.log('data: ', data);
   		res.render('index', { title: 'Wings-Welcome!' , data});
   	}
-  } 
+  }
 });
 
-router.get('/search', function(req, res, next) {
-  searchModule.searchFlights();
-  res.render('search', { title: 'Flight Search' });
+router.post('/search', function(req, res, next) {
+    var params = req.body;
+    searchModule.searchFlights(params.tripType, params.departureAirportCode, params.destinationAirportCode, params.departDate, params.returnDate,
+        function (err, data) {
+        if(err){
+            console.error('Error in searching flight records!');
+        }else{
+            if(params.tripType == JourneyTypeEnum.ONE_WAY){
+                res.render('searchoneway', { title: 'Flight Search' , results: data});
+            } else {
+                res.render('search', { title: 'Flight Search' , results: data});
+            }
+        }
+    });
 });
 
-router.get('/searchoneway', function(req, res, next) {
-  res.render('searchoneway', { title: 'Search!' });
+router.post('/searchoneway', function(req, res, next) {
+    res.render('searchoneway', { title: 'Search!' });
 });
 
 router.get('/payments', function(req, res, next) {
-  res.render('payments', { title: 'Payments' });
+    res.render('payments', { title: 'Payments' });
 });
 
 router.get('/confirmation', function(req, res, next){
-  res.render('confirmation', { title: 'Confirmation' });
+    res.render('confirmation', { title: 'Confirmation' });
 });
 
 router.get('/about', function(req, res, next){
-  res.render('about', {title: 'About Us'});
+    res.render('about', {title: 'About Us'});
 });
 
 module.exports = router;
