@@ -50,4 +50,12 @@ router.get('/about', function(req, res, next){
     res.render('about', {title: 'About Us'});
 });
 
+router.get('/pnr', function(req, res, next){
+    res.render('pnr', {title: 'See Bookings'});
+});
+
+router.get('/destinations', function(req, res, next){
+    res.render('destinations', {title: 'Destinations'});
+});
+
 module.exports = router;
