@@ -54,3 +54,19 @@ INSERT into fare
 values(8,'XYZ',410);
 INSERT into fare
 values(9,'XYZ',330);
+
+
+INSERT into flight_workdays
+values('ABC',5);
+INSERT into flight_workdays
+values('ABC',6);
+INSERT into flight_workdays
+values('ABC',7);
+INSERT into flight_workdays
+values('DEF',4);
+INSERT into flight_workdays
+values('DEF',5);
+INSERT into flight_workdays
+values('DEF',6);
+INSERT into flight_workdays
+values('DEF',7);
