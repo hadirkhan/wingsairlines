@@ -26,7 +26,10 @@ router.post('/search', function(req, res, next) {
             console.error('Error in searching flight records!');
         }else{
             if(params.tripType == JourneyTypeEnum.ONE_WAY){
-                res.render('searchoneway', { title: 'Flight Search' , results: data});
+            	results = data;
+            	results.departingCityName[0].city_shortcode = "CH";
+            	results.arrivingCityName[0].city_shortcode = "IN";
+                res.render('searchoneway', { title: 'Flight Search' , results});
             } else {
                 res.render('search', { title: 'Flight Search' , results: data});
             }
