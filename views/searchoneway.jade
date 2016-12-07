@@ -18,19 +18,19 @@ block content
                     select#departAirportSelect.form-control(name="departureAirportCode", style="width: 143px; margin-left: 4px;")
                         each value, key in airportsList
                             option(value='#{key}', selected= (key == searchParams.departureAirportCode)) #{value}
-                div.col-md-1.search-box-item(style="margin-left: 85px;")
+                div.col-md-1.search-box-item(style="margin-left: 100px;")
                     span(style="font-size:14px; margin-top: 5px;") To:
                     br
                     select#destAirporlSelect.form-control(name="destinationAirportCode", style="width: 143px; margin-left: 4px;")
                         each value, key in airportsList
                             option(value='#{key}', selected = key == searchParams.destinationAirportCode) #{value}
-                div.col-md-2.search-box-item(style="margin-left: 65px;")
+                div.col-md-2.search-box-item(style="margin-left: 87px;")
                     span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
                     input#departDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
-                div.col-md-2.search-box-item
+                div.col-md-2.search-box-item(style="margin-left: -18px;")
                     span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
                     input#returnDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
-                div.col-md-2.search-box-item
+                div.col-md-2.search-box-item(style="margin-left: -19px;")
                     span(style="font-size:14px; margin-top: 5px;") Adult
                     div(style="display: inline-flex; margin-left: 5px;")
                         span#adultCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
