@@ -58,7 +58,7 @@ values('W-STV',5);
 INSERT into flight_workdays
 values('W-PQR',6);
 INSERT into flight_workdays
-values('W-RPQ',7);
+values('W-RQP',7);
 INSERT into flight_workdays
 values('W-VTS',4);
 INSERT into flight_workdays
@@ -88,7 +88,7 @@ values('W-TRP',1);
 INSERT into flight_workdays
 values('W-KLM',2);
 INSERT into flight_workdays
-values('W-RPQ',3);
+values('W-RQP',3);
 INSERT into flight_workdays
 values('W-TRP',4);
 INSERT into flight_workdays
