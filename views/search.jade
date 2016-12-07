@@ -225,8 +225,8 @@ block append scripts
             $("#r_flightname").text(initialRFlightNo);
 
             //- total price
-            var dPrice;
-            var rPrice;
+            var dPrice = initialDPrice;
+            var rPrice = initialRPrice;
             var initialtotalPrice = parseInt(initialDPrice.split(" ")[1]) + parseInt(initialRPrice.split(" ")[1]);
 
             $('input[type=radio][name=departure-flight]').on('change', function()
@@ -256,7 +256,7 @@ block append scripts
                 rPrice = currentSelectedReturnFlight.totalFare = $("#r_price_" + rFlightSelectedIndex).text();
                 var rTotalPrice = parseInt(dPrice.split(" ")[1]) + parseInt(rPrice.split(" ")[1]);
                 var rFlightNo = currentSelectedReturnFlight.flightNo = $("#r_flight_no_"+rFlightSelectedIndex).text();
-                currentSelectedReturnFlight.flightDuration = $("#r_duration_time_" + dFlightSelectedIndex).text();
+                currentSelectedReturnFlight.flightDuration = $("#r_duration_time_" + rFlightSelectedIndex).text();
 
                 $("#r_selected_departure_time").text(rDepartureTime+"\n"+"");
                 $("#r_selected_departure_time").append("<span>#{results.arrivingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
