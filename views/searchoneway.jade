@@ -81,7 +81,7 @@ block content
                                             div.S-Leg-Duration-Time(id='duration_time_#{index}', style='margin-top:23px')= item.formattedLegDuration
                                     td.S-Coloumn-Text(style="vertical-align:middle;")
                                         div.col-md-1
-                                            div.S-Price-label(id='price_#{index}') $#{item.fare}
+                                            div.S-Price-label(id='price_#{index}') $ #{item.fare}
     if results.oneWayFlights.length != 0
         div.row(style="margin-right:0px")
             div.col-md-10
@@ -107,11 +107,20 @@ block content
                         br
                         span(style="font-size:15px;")
                     div
-                        input#btnBook.btn.btn-warning.btn-lg(style="color:white; margin-top: 17px; margin-left: 50px;", value="Book!", type="button")
+                        form#bookFlights(action="/payments", method="post")
+                            input#btnBook.btn.btn-warning.btn-lg(style="color:white; margin-top: 17px; margin-left: 50px;", value="Book!", type="button")
+
 block footer
 block append scripts
     script.
         window.onload = function() {
+
+            var datePickerOptions = {
+                dateFormat: 'yy-mm-dd',
+                changeMonth: true,
+                changeYear: true,
+                minDate: '0D'
+            };
 
             var currentSelectedToFlight = {
                 flightNo: '',
@@ -119,40 +128,51 @@ block append scripts
                 flightArrivalTime: '',
                 flightDuration: '',
                 totalFare: '',
-
+                departureCityName: "#{results['departingCityName'][0]['city_name']}",
+                departureCityShortCode: "#{results['departingCityName'][0]['city_short_code']}",
+                arrivalCityName: "#{results['arrivingCityName'][0]['city_name']}",
+                arrivalCityShortCode: "#{results['arrivingCityName'][0]['city_short_code']}",
+                formattedDateOfTravel: "#{results['formattedDepartureDate']}"
             };
 
             $('input:radio[name=departure-flight]')[0].checked = true;
 
-            var initialFlightSelected = $('input[type=radio][name=departure-flight]:checked').attr('id');
-            var initialFlightSelectedIndex = initialFlightSelected.split('_')[2];
-            var initialDepartureTime = currentSelectedToFlight.flightDepartureTime = $("#departure_time_" + initialFlightSelectedIndex).text();
+            var currentSelectedFlightIndex = $('input[type=radio][name=departure-flight]:checked').attr('id').split('_')[2];
+            var currentSelectedFlightDepartureTime = currentSelectedToFlight.flightDepartureTime = $("#departure_time_" + currentSelectedFlightIndex).text();
+            var currentSelectedFlightArrivalTime = currentSelectedToFlight.flightArrivalTime = $("#arrival_time_" + currentSelectedFlightIndex).text();
+            var currentSelectedFlightPrice = currentSelectedToFlight.totalFare = $("#price_" + currentSelectedFlightIndex).text();
+            var currentSelectedFlightNo = currentSelectedToFlight.flightNo = $("#flight_no_" + currentSelectedFlightIndex).text();
+            var currentSelectedFlightFormattedDuration = currentSelectedToFlight.flightDuration = $("#duration_time_" + currentSelectedFlightIndex).text();
 
-            $("#selected_departure_time").text(initialDepartureTime + "\n" + "");
+            $("#selected_departure_time").text(currentSelectedFlightDepartureTime + "\n" + "");
             $("#selected_departure_time").append("<span>#{results['departingCityName'][0]['city_short_code']}</span><div class='S-arrow-1'></div>");
 
-            var initialArrivalTime = currentSelectedToFlight.flightArrivalTime = $("#arrival_time_" + initialFlightSelectedIndex).text();
+            $("#selected_arrival_time").text(currentSelectedFlightArrivalTime + "\n" + "#{results['arrivingCityName'][0]['city_short_code']}");
 
-            $("#selected_arrival_time").text(initialArrivalTime + "\n" + "#{results['arrivingCityName'][0]['city_short_code']}");
+            $("#selected_price").text(currentSelectedFlightPrice + "\nAmount");
 
-            var initialPrice = $("#price_" + initialFlightSelectedIndex).text();
+            //- removes the space between dollar sign and numeric value
+            $("#selected_total_price").text(currentSelectedFlightPrice.replace(/ /g, ''));
 
-            $("#selected_price").text(initialPrice + "\nAmount");
-            $("#selected_total_price").text(initialPrice.replace(/ /g, ''));
-            $("#flightName").text($("#flight_no_" + initialFlightSelectedIndex).text());
+            $("#flightName").text(currentSelectedFlightNo);
 
             $('input[type=radio][name=departure-flight]').on('change', function () {
-                var flightSelectedIndex = this.id.split('_')[2];
-                var departureTime = $("#departure_time_" + flightSelectedIndex).text();
-                $("#selected_departure_time").text(departureTime + "\n" + "");
-                $("#selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
-                var arrivalTime = $("#arrival_time_" + flightSelectedIndex).text();
-                $("#selected_arrival_time").text(arrivalTime + "\n" + "#{results.arrivingCityName[0]['city_short_code']}");
-                var price = $("#price_" + flightSelectedIndex).text();
+                currentSelectedFlightIndex = this.id.split('_')[2];
+                currentSelectedFlightDepartureTime = currentSelectedToFlight.flightDepartureTime = $("#departure_time_" + currentSelectedFlightIndex).text();
+                currentSelectedFlightArrivalTime = currentSelectedToFlight.flightArrivalTime = $("#arrival_time_" + currentSelectedFlightIndex).text();
+                currentSelectedFlightPrice = currentSelectedToFlight.totalFare = $("#price_" + currentSelectedFlightIndex).text();
+                currentSelectedFlightNo = currentSelectedToFlight.flightNo = $("#flight_no_" + currentSelectedFlightIndex).text();
 
-                $("#selected_price").text(price + "\nAmount");
-                $("#selected_total_price").text(price.replace(/ /g, ''));
-                $("#flightName").text($("#flight_no_" + flightSelectedIndex).text());
+
+                $("#selected_departure_time").text(currentSelectedFlightDepartureTime + "\n" + "");
+                $("#selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
+
+                $("#selected_arrival_time").text(currentSelectedFlightArrivalTime + "\n" + "#{results.arrivingCityName[0]['city_short_code']}");
+
+                $("#selected_price").text(currentSelectedFlightPrice + "\nAmount");
+                $("#selected_total_price").text(currentSelectedFlightPrice.replace(/ /g, ''));
+
+                $("#flightName").text(currentSelectedFlightNo);
             });
 
 
@@ -163,13 +183,6 @@ block append scripts
             $('#radio-trip-oneway').on('change', function () {
                 $('#returnDate').attr('disabled', true);
             });
-
-            var datePickerOptions = {
-                dateFormat: 'yy-mm-dd',
-                changeMonth: true,
-                changeYear: true,
-                minDate: '0D'
-            };
 
             $('#departDate').datepicker(datePickerOptions);
             $('#departDate').datepicker('setDate', "#{searchParams.departDate}");
@@ -184,6 +197,7 @@ block append scripts
                     $('#adultCount').val(count - 1);
                 }
             });
+
             $('#adultCountPlus').on('click', function () {
                 var count = parseInt($('#adultCount').val());
                 if (count < 9) {
@@ -197,6 +211,7 @@ block append scripts
                     $('#childCount').val(count - 1);
                 }
             });
+
             $('#childCountPlus').on('click', function () {
                 var count = parseInt($('#childCount').val());
                 if (count < 9) {
@@ -204,15 +219,19 @@ block append scripts
                 }
             });
 
-
             $('#btnBook').on('click', function (e) {
-                var selectedFlightNo = this.id.split('_')[2],
-                    departureTime = $("#departure_time_" + flightSelectedIndex).text();
+
+                $(this).append('<input type="hidden" name="flightNo" value="'+currentSelectedToFlight.flightNo+'">');
+                $(this).append('<input type="hidden" name="flightDepartureTime" value="'+currentSelectedToFlight.flightDepartureTime+'">');
+                $(this).append('<input type="hidden" name="flightArrivalTime" value="'+currentSelectedToFlight.flightArrivalTime+'">');
+                $(this).append('<input type="hidden" name="flightDuration" value="'+currentSelectedToFlight.flightDuration+'">');
+                $(this).append('<input type="hidden" name="totalFare" value="'+currentSelectedToFlight.totalFare.replace('$','')+'">');
+                $(this).append('<input type="hidden" name="departureCityName" value="'+currentSelectedToFlight.departureCityName+'">');
+                $(this).append('<input type="hidden" name="departureCityShortCode" value="'+currentSelectedToFlight.departureCityShortCode+'">');
+                $(this).append('<input type="hidden" name="arrivalCityName" value="'+currentSelectedToFlight.arrivalCityName+'">');
+                $(this).append('<input type="hidden" name="arrivalCityShortCode" value="'+currentSelectedToFlight.arrivalCityShortCode+'">');
+                $(this).append('<input type="hidden" name="formattedDateOfTravel" value="'+currentSelectedToFlight.formattedDateOfTravel+'">');
+
+                $('#bookFlights').submit();
             });
-
         }
-
-
-
-
-

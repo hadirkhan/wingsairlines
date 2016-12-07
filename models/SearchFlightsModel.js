@@ -13,13 +13,19 @@ function getFlights(departingAirportCode, arrivalAirportCode, dateOfTravel) {
             "WHERE r.departure_airport_code = ? AND r.arrival_airport_code = ? " +
             "AND l.date_of_travel = ? AND l.leg_no = fl.leg_no;";
         */
-        
         const searchQuery = "SELECT fl.flight_no, fl.scheduled_departure_time, fl.scheduled_arrival_time, fl.leg_duration, " +
             "fr.fare, l.date_of_travel , fl.route_id , l.leg_no FROM flight_leg AS fl LEFT JOIN flight AS f ON (fl.flight_no = f.flight_no) " +
             "JOIN leg_instance l ON fl.flight_no = l.flight_no LEFT JOIN route AS r ON (fl.route_id = r.route_id) " +
             "LEFT JOIN fare AS fr ON (fl.route_id = fr.route_id AND fl.flight_no = fr.special_code) " +
             "WHERE r.departure_airport_code = ? AND r.arrival_airport_code = ? AND l.date_of_travel = ? AND l.leg_no = fl.leg_no;";
-        
+        /*const searchQuery = "SELECT fl.flight_no, fl.scheduled_departure_time ,  fl.scheduled_arrival_time,fl.leg_duration," +
+            "fr.fare , CAST(fl.scheduled_departure_time as DATE), fl.leg_no, fl.route_id" +
+            "FROM light_leg AS fl LEFT join flight AS f ON (fl.flight_no = f.flight_no)" +
+            "JOIN flight_workdays fw ON (fl.flight_no = fw.flight_no)"+
+            "LEFT join route AS r ON (fl.route_id = r.route_id)" +
+            "LEFT join fare AS fr ON (fl.route_id = fr.route_id AND fl.flight_no = fr.special_code) WHERE" +
+            "r.departure_airport_code = ? AND r.arrival_airport_code = ? AND fw.operating_day_id = dayofweek(?);";
+*/
         dbutil.getConnection().query(searchQuery, [departingAirportCode, arrivalAirportCode, dateOfTravel], function(err, rows, fields){
             if(!err) {
                 resolve(rows);

@@ -20,12 +20,9 @@ router.get('/', function(req, res, next) {
 
 router.post('/search', function(req, res, next) {
 
-    if(req.body.tripType){
+    if(req.body.tripType || req.session){
 
-        var airportsData;
-
-
-        var params = req.body;
+        var params = req.body || req.session.userSearchParams;
 
         req.session.userSearchParams = params;
 
@@ -64,9 +61,50 @@ router.post('/search', function(req, res, next) {
     }
 });
 
-router.get('/payments', function(req, res, next) {
-    if(req.session){
-        res.render('payments', { title: 'Payments' });
+router.post('/payments', function(req, res, next) {
+
+    if(req.session.userSearchParams){
+        var userSearchParams = req.session.userSearchParams;
+        var selectedToFlightInfo, selectedReturnFlightInfo;
+        if(req.body){
+            selectedToFlightInfo = {
+                flightNo: req.body.flightNo,
+                flightDepartureTime: req.body.flightDepartureTime,
+                flightArrivalTime: req.body.flightArrivalTime,
+                flightDuration: req.body.flightDuration,
+                totalFare: '299',//req.body.totalFare,
+                departureCityName: req.body.departureCityName,
+                departureCityShortCode: req.body.departureCityShortCode,
+                arrivalCityName: req.body.arrivalCityName,
+                arrivalCityShortCode: req.body.arrivalCityShortCode,
+                formattedDateOfTravel: req.body.formattedDateOfTravel
+            };
+            if(userSearchParams.tripType == JourneyTypeEnum.RETURN){
+                selectedReturnFlightInfo = {
+                    flightNo: req.body.rFlightNo,
+                    flightDepartureTime: req.body.rFlightDepartureTime,
+                    flightArrivalTime: req.body.rFlightArrivalTime,
+                    flightDuration: req.body.rFlightDuration,
+                    totalFare: '200', //req.body.rTotalFare,
+                    departureCityName: req.body.rDepartureCityName,
+                    departureCityShortCode: req.body.rDepartureCityShortCode,
+                    arrivalCityName: req.body.rArrivalCityName,
+                    arrivalCityShortCode: req.body.rArrivalCityShortCode,
+                    formattedDateOfTravel: req.body.rFormattedDateOfTravel
+                }
+            }
+        }
+
+        var templateData = {
+            title: 'Payments',
+            userSearchParams: userSearchParams,
+            toFlightInfo: selectedToFlightInfo
+        };
+
+        templateData.returnFlightInfo = selectedReturnFlightInfo ? selectedReturnFlightInfo : undefined;
+
+        res.render('payments', templateData);
+
     } else {
         console.info('Redirected user to index page from direct payments');
         res.redirect('/');

@@ -1,322 +1,323 @@
 @font-face {
-  font-family: 'Roboto';
-  src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
+    font-family: 'Roboto';
+    src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
 }
 html, body{
- margin: 0;
- padding: 0;
+    margin: 0;
+    padding: 0;
 }
-.Rectangle { 
-  width: 1440px;
-  height: 55px;
-  background-color: #f9f8f6;
-  border: solid 1px #979797;
-  
+.Rectangle {
+    width: 1440px;
+    height: 55px;
+    background-color: #f9f8f6;
+    border: solid 1px #979797;
+
 }
 .Line {
-  position: absolute;
-  margin-left: 10px;
-  margin-top: -18px;
-  height: 53px;
-  border: solid 1px #d2c7c7;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -18px;
+    height: 53px;
+    border: solid 1px #d2c7c7;
 }
 .logo {
-  margin-left: 16.3px;
-  margin-top: 5.3px;
-  width: 45.1px;
-  height: 43.4px;
-  background-image: url('/images/logo.png');
-  background-repeat: no-repeat;  
+    margin-left: 16.3px;
+    margin-top: 5.3px;
+    width: 45.1px;
+    height: 43.4px;
+    background-image: url('/images/logo.png');
+    background-repeat: no-repeat;
 }
 .WingsAirlines {
-  margin-top: -38px;
-  margin-left: 73px;
-  width: 195.5px;
-  height: 33px;
-  font-family: Roboto;
-  color: #19707b;
-  font-size: 25px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
+    margin-top: -38px;
+    margin-left: 73px;
+    width: 195.5px;
+    height: 33px;
+    font-family: Roboto;
+    color: #19707b;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
 }
 .Login {
-  margin-top: -30px;
-  margin-left: 1217px;
-  width: 60.5px;
-  height: 24px;
-  font-family: Roboto;
-  color: #19707b;
-  font-size: 18px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  cursor: pointer;
+    margin-top: -30px;
+    margin-left: 1217px;
+    width: 60.5px;
+    height: 24px;
+    font-family: Roboto;
+    color: #19707b;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    cursor: pointer;
 }
 .SignUp {
-  margin-top: -24px;
-  margin-left: 1343px;
-  width: 78.7px;
-  height: 24px;
-  font-family: Roboto;
-  color: #19707b;
-  font-size: 18px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: condensed;
-  cursor: pointer;
+    margin-top: -24px;
+    margin-left: 1343px;
+    width: 78.7px;
+    height: 24px;
+    font-family: Roboto;
+    color: #19707b;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: condensed;
+    cursor: pointer;
 }
-.p-rectangle-2 {  
-  height: 34.8px;
-  margin-right: 0px;
-  margin-top:-20px;
-  background-color: rgba(24, 111, 122, 0.66);
-  border: solid 1px #979797;
+.p-rectangle-2 {
+    height: 34.8px;
+    margin-right: 0px;
+    margin-top:-20px;
+    background-color: rgba(24, 111, 122, 0.66);
+    border: solid 1px #979797;
 }
 .p-flightdetails {
-  height: 25.1px;
-  margin-left: 15px;
-  margin-top: 5px;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #f8f9fc;
+    height: 25.1px;
+    margin-left: 15px;
+    margin-top: 5px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #f8f9fc;
 }
 .p-detailsTitle {
-  //width: 163px;
-  height: 25.1px;
-  margin-left: 15px;
-  margin-top: 5px;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #f8f9fc;
+//width: 163px;
+    height: 25.1px;
+    margin-left: 15px;
+    margin-top: 5px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #f8f9fc;
 }
 .p-passengerDetails{
-display: none;
-margin-right:0%;
+    display: none;
+    margin-right:0%;
 }
 .p-paymentDetails{
-display: none;
+    display: none;
 }
 .p-rectangle-6 {
-  //width: 1440px;
-  height: 34.8px;
- // margin-top: -63px;
-  background-color: rgba(24, 111, 122, 0.66);
-  border: solid 1px #979797;
-  //display:none;
+//width: 1440px;
+    height: 34.8px;
+// margin-top: -63px;
+    background-color: rgba(24, 111, 122, 0.66);
+    border: solid 1px #979797;
+//display:none;
 }
 .p-personalDetails{
 //width:1440px;
 //height:110px;
-border: solid 1px #c5c5c5;
+    border: solid 1px #c5c5c5;
 }
 .p-contactDetails{
 //width:1440px;
-height:110px;
-border: solid 1px #c5c5c5;
+    height:110px;
+    border: solid 1px #c5c5c5;
 }
 .p-details {
-  //width: 133.4px;
-  //height: 19px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #4f4f4f;
+//width: 133.4px;
+//height: 19px;
+    font-family: Roboto;
+    width: 19%;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #4f4f4f;
 }
 .p-box {
-  margin-top: 3%;
-  width: 200px;
-  height: 35.1px;
-  background-color: #fcf8f8;
-  border: solid 1px #979797;
+    margin-top: 3%;
+    width: 200px;
+    height: 35.1px;
+    background-color: #fcf8f8;
+    border: solid 1px #979797;
 }
 .p-box1 {
-  margin-top: 3%;
-  width: 300px;
-  height: 35px;
-  background-color: #fcf8f8;
-  border: solid 1px #979797;
+    margin-top: 3%;
+    width: 300px;
+    height: 35px;
+    background-color: #fcf8f8;
+    border: solid 1px #979797;
 }
 .number {
-  width: 179.1px;
-  height: 19px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #a8a8a8;
+    width: 179.1px;
+    height: 19px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #a8a8a8;
 }
 .female {
-  width: 179.1px;
-  height: 19px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #4f4f4f;
+    width: 179.1px;
+    height: 19px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #4f4f4f;
 }
 .p-cardDetails{
 //width:1440px;
-height:180px;
-border: solid 1px #c5c5c5;
+    height:180px;
+    border: solid 1px #c5c5c5;
 }
 .p-rectangle-3 {
-  //width: 1440px;
-  height: 275px;
-  background-color: #e8e7e4;
-  //border: solid 1px #c5c5c5;
+//width: 1440px;
+    height: 275px;
+    background-color: #e8e7e4;
+//border: solid 1px #c5c5c5;
 }
 .p-departure {
-  //width: 105px;
-  height: 24px;
-  margin-left: 26px;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #4e4e4f;
+//width: 105px;
+    height: 24px;
+    margin-left: 26px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #4e4e4f;
 }
 .p-rectangle-4 {
-  //width: 1410px;
-  height: 100px;
-  margin-left : 15px;
-  margin-right: 15px;
-  background-color: #ffffff;
-  border: solid 1px #c5c5c5;
+//width: 1410px;
+    height: 100px;
+    margin-left : 15px;
+    margin-right: 15px;
+    background-color: #ffffff;
+    border: solid 1px #c5c5c5;
 }
 .p-datetimetitle {
-  margin-top: 10px;
-  //width: 148px;
-  height: 24px;
-  margin-left: 26px;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #4e4e4f;
+    margin-top: 10px;
+//width: 148px;
+    height: 24px;
+    margin-left: 26px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #4e4e4f;
 }
 .p-wings_airlines_logo {
-  //width: 35px;
-  height: 45px;
-      left: 1%;
+//width: 35px;
+    height: 45px;
+    left: 1%;
     top: 10%;
-  //margin-left: 26px;
-  //margin-top: 10px;
-  background-image: url('/images/Wings_Flight_Logo.svg');
-  background-repeat:no-repeat;
+//margin-left: 26px;
+//margin-top: 10px;
+    background-image: url('/images/Wings_Flight_Logo.svg');
+    background-repeat:no-repeat;
 }
 .p-wings_airlines {
- // width: 148px;
-  //height: 20px;
-  position: relative;
-  top: 10px;
-  margin-left: 45px;
-  font-family: RobotoCondensedBold;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #4e4e4f;
+// width: 148px;
+//height: 20px;
+    position: relative;
+    top: 10px;
+    margin-left: 45px;
+    font-family: RobotoCondensedBold;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #4e4e4f;
 }
 .p-source {
-  //width: 80px;
-  //height: 60px;
-  //margin-left: 370px;
-  //margin-top: -60px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-align: center;
-  color: #4e4e4f;
+//width: 80px;
+//height: 60px;
+//margin-left: 370px;
+//margin-top: -60px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: condensed;
+    text-align: center;
+    color: #4e4e4f;
 }
 .p-arrow {
     width: 48px;
     height: 48px;
-   margin-left: 35%;
+    margin-left: 35%;
     margin-top: 5%;
-  background-image: url('/images/arrow2.png');
-  background-size: 100%,100%;
-  background-repeat: no-repeat;
+    background-image: url('/images/arrow2.png');
+    background-size: 100%,100%;
+    background-repeat: no-repeat;
 }
 .p-destination {
-  //width: 80px;
-  height: 60px;
-  //margin-left: 690px;
-  //margin-top: -58px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-align: center;
-  color: #4e4e4f;
+//width: 80px;
+    height: 60px;
+//margin-left: 690px;
+//margin-top: -58px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: condensed;
+    text-align: center;
+    color: #4e4e4f;
 }
 .p-econo {
-  //width: 100px;
-  //height: 60px;
-  //margin-left: 1024px;
-  //margin-top: -60px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-align: center;
-  color: #4e4e4f;
+//width: 100px;
+//height: 60px;
+//margin-left: 1024px;
+//margin-top: -60px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: condensed;
+    text-align: center;
+    color: #4e4e4f;
 }
 .p-amount{
-  //width: 68.7px;
- // height: 46px;
-  //margin-left: 1260px;
-  //margin-top: -46px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-align: center;
-  color: #4e4e4f;
+//width: 68.7px;
+// height: 46px;
+//margin-left: 1260px;
+//margin-top: -46px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: condensed;
+    text-align: center;
+    color: #4e4e4f;
 }
 .p-rate{
 //font-size: 24px;
 }
 .p-titeleAmount{
-font-size: 20px;
+    font-size: 20px;
 }
 .p-totalamount {
-  //width: 184.9px;
-  height: 78px;
-    //margin-left: 80%;
+//width: 184.9px;
+    height: 78px;
+//margin-left: 80%;
     margin-top: 2%;
     float:right;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-align: center;
-  color: #050506;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: condensed;
+    text-align: center;
+    color: #050506;
 }
 .p-rectangle-5 {
-     width: 165px;
+    width: 165px;
     height: 60px;
-        //margin-left: 2%;
+//margin-left: 2%;
     margin-top: 10%;
-  background-color: #ecd72d;
-  //border: solid 1px #19707b;
-  cursor: pointer;
+    background-color: #ecd72d;
+//border: solid 1px #19707b;
+    cursor: pointer;
 }
 .p-rectangle-7 {
-  margin-top: 1%;
+    margin-top: 1%;
     width: 180px;
     height: 60px;
     margin-bottom: 1%;
     margin-right: 1%;
     float:right;
-  background-color: #ecd72d;
-  //border: solid 1px #19707b;
-  cursor: pointer;
+    background-color: #ecd72d;
+//border: solid 1px #19707b;
+    cursor: pointer;
 }
 .p-rectangle-9 {
     margin-top: 1%;
@@ -325,69 +326,69 @@ font-size: 20px;
     margin-bottom: 1%;
     margin-right: 1%;
     float:right;
-  background-color: #ecd72d;
-  border: solid 1px #19707b;
-  cursor: pointer;
+    background-color: #ecd72d;
+    border: solid 1px #19707b;
+    cursor: pointer;
 }
 .p-makePayment {
-      //width: 150px;
-    //height: 32px;
-       //margin-top: 1%;
-    //margin-left: 1%;
+//width: 150px;
+//height: 32px;
+//margin-top: 1%;
+//margin-left: 1%;
     font-family: Roboto;
     font-size: 22px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #fffff;
-  cursor: pointer;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #fffff;
+    cursor: pointer;
 }
 
 .p-Pay {
-      //width: 150px;
-    //height: 32px;
-    //margin-top: 5px;
-    //margin-left: 65px;
+//width: 150px;
+//height: 32px;
+//margin-top: 5px;
+//margin-left: 65px;
     font-family: Roboto;
     font-size: 30px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #ffffff;
-  cursor:pointer;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #ffffff;
+    cursor:pointer;
 }
 .alertBox{
-      //width: 500px;
-    //height: 100px;
-   // position: absolute;
-    //z-index: 100;
+//width: 500px;
+//height: 100px;
+// position: absolute;
+//z-index: 100;
 }
 .OKButton{
-  margin-left:2%;
+    margin-left:2%;
 }
 .p-continue {
-   
+
     font-family: Roboto;
     font-size: 28px;
-  font-weight: bold;
-  font-stretch: condensed;
-  color: #ffffff;
-  cursor: pointer;
+    font-weight: bold;
+    font-stretch: condensed;
+    color: #ffffff;
+    cursor: pointer;
 }
 .p-Rectangle-8 {
-  width: 1440px;
-  height: 57px;
-  background-color: #575555;
-  border: solid 1px #1d0202;
-  margin-top: 10px
-  
+    width: 1440px;
+    height: 57px;
+    background-color: #575555;
+    border: solid 1px #1d0202;
+    margin-top: 10px
+
 }
 .exploreLinkLeft {
-  width: 128px;
-  height: 30px;
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  color: #f4f4f8;
-  
+    width: 128px;
+    height: 30px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    color: #f4f4f8;
+
 }
