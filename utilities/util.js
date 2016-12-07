@@ -37,7 +37,8 @@ function replaceShortDayName(dateString) {
         default:
             break;
     }
-    return dateString.replace(shortDayName, fullDayName);
+    dateString = dateString.replace(shortDayName, fullDayName);
+    return dateString.split(' ').slice(0, 4).join(' ');
 }
 
 function getFormattedLegDuration(departureTimestamp, arrivalTimestamp) {

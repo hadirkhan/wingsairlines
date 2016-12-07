@@ -8,37 +8,41 @@ var searchModule = require('../models/SearchFlightsModel');
 var homepageModule = require('../models/HomePageModel');
 
 router.get('/', function(req, res, next) {
-  homepageModule.searchFlights(handleResults);
-  function handleResults(err, data){
-  	if(err){
-  		throw err;
-  	}else if (data){
-  		res.render('index', { title: 'Wings-Welcome!' , data: data});
-  	}
-  }
+    homepageModule.searchFlights(handleResults);
+    function handleResults(err, data){
+        if(err){
+            throw err;
+        }else if (data){
+            res.render('index', { title: 'Wings-Welcome!' , data: data});
+        }
+    }
 });
 
 router.post('/search', function(req, res, next) {
-    var params = req.body;
-    searchModule.searchFlights(params.tripType, params.departureAirportCode, params.destinationAirportCode, params.departDate, params.returnDate,
-        function (err, data) {
-        if(err){
-            console.error('Error in searching flight records!');
-        }else{
-            if(params.tripType == JourneyTypeEnum.ONE_WAY){
-            	results = data;
-            	results.departingCityName[0].city_shortcode = "CH";
-            	results.arrivingCityName[0].city_shortcode = "IN";
-                res.render('searchoneway', { title: 'Flight Search' , results});
-            } else {
-                res.render('search', { title: 'Flight Search' , results: data});
-            }
-        }
-    });
-});
 
-router.post('/searchoneway', function(req, res, next) {
-    res.render('searchoneway', { title: 'Search!' });
+    if(req.body.tripType){
+
+        var params = req.body;
+
+        //req.session.userSearchParams = params;
+
+        searchModule.searchFlights(params.tripType, params.departureAirportCode, params.destinationAirportCode, params.departDate, params.returnDate,
+            function (err, data) {
+                if(err){
+                    console.error('Error in searching flight records!');
+                } else {
+                    if(params.tripType == JourneyTypeEnum.ONE_WAY){
+                        res.render('searchoneway', { title: 'Flight Search' , searchParams: params, results: data});
+                    } else {
+                        console.log('results in return: ', data);
+                        res.render('search', { title: 'Flight Search' , searchParams: params, results: data});
+                    }
+                }
+            });
+    } else {
+        console.info('Redirected user to index page from direct search');
+        res.redirect('/');
+    }
 });
 
 router.get('/payments', function(req, res, next) {

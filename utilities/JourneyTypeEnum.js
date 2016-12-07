@@ -1,6 +1,6 @@
 const JourneyTypeEnum = {
     ONE_WAY: 'oneway',
-    RETURN: 'return'
+    RETURN: 'round'
 };
 
 module.exports = JourneyTypeEnum;

@@ -6,10 +6,12 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
+const session = require('express-session')
 const bodyParser = require('body-parser');
+const db = require('./utilities/DatabaseConnectionUtility');
+
 const routes = require('./routes/index');
 const users = require('./routes/users');
-const db = require('./utilities/DatabaseConnectionUtility');
 
 var app = express();
 
@@ -18,7 +20,7 @@ require('console-stamp')(console, {
   pattern:'dd/mm/yyyy HH:MM:ss.l',
   colors: {
     stamp: "yellow",
-    label: "white",
+    label: "white"
   }
 });
 
@@ -33,7 +35,10 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(session({
+    secret: process.env.SESSION_SECRET
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

@@ -23,15 +23,11 @@ function getFlights(departingAirportCode, arrivalAirportCode, dateOfTravel) {
     });
 }
 
-function searchFlights(flightType, fromAirport, destinationAirport, departureDate, returnDate, callback){
-
-    var results = {};
-
-    results['departureDate'] = new Date(departureDate).toDateString();
-    results['formattedDepartureDate'] = util.replaceShortDayName(results.departureDate);
-
-    var departingCityName = new Promise(function(resolve, reject){
-        dbutil.getConnection().query("SELECT c.city_name FROM cities c JOIN airport a ON c.city_id = a.city_id WHERE a.airport_code = ?", [fromAirport], function (err, rows, fields) {
+function getCitiesInformation(airportCode) {
+    return new Promise(function(resolve, reject){
+        dbutil.getConnection().query("SELECT c.city_name, c.city_short_code " +
+            "FROM cities c JOIN airport a ON c.city_id = a.city_id " +
+            "WHERE a.airport_code = ?", [airportCode], function (err, rows, fields) {
             if(err){
                 console.error('Error in fetching departing city name in SearchFlightsModel.searchFlights');
                 reject(err);
@@ -40,25 +36,31 @@ function searchFlights(flightType, fromAirport, destinationAirport, departureDat
             }
         });
     });
+}
 
-    var arrivingCityName = new Promise(function(resolve, reject) {
-        dbutil.getConnection().query("SELECT c.city_name FROM cities c JOIN airport a ON c.city_id = a.city_id WHERE a.airport_code = ?", [destinationAirport], function (err, rows, fields) {
-            if (err) {
-                console.error('Error in fetching destination city name in SearchFlightsModel.searchFlights');
-                reject(err);
-            } else if (rows.length > 0) {
-                resolve(rows);
-            }
-        });
-    });
+function searchFlights(flightType, fromAirport, destinationAirport, departureDate, returnDate, callback){
+
+    var results = {};
+
+    results['departureDate'] = new Date(departureDate).toUTCString();
+    results['formattedDepartureDate'] = util.replaceShortDayName(results.departureDate);
+
+    var departingCityName = getCitiesInformation(fromAirport);
+    var arrivingCityName = getCitiesInformation(destinationAirport);
 
     var oneWay, returnTrip;
-    if(flightType = JourneyTypeEnum.ONE_WAY){
+
+    if(flightType == JourneyTypeEnum.ONE_WAY){
+
         oneWay = getFlights(fromAirport, destinationAirport, departureDate);
-    } else if(flightType = JourneyTypeEnum.RETURN){
+
+    } else if(flightType == JourneyTypeEnum.RETURN){
+
         oneWay = getFlights(fromAirport, destinationAirport, departureDate);
         returnTrip = getFlights(destinationAirport, fromAirport, returnDate);
-        results.returnDate = new Date(departureDate).toDateString();
+
+        results['returnDate'] = new Date(returnDate).toUTCString();
+        results['formattedReturnDate'] = util.replaceShortDayName(results.returnDate);
     }
 
     Promise.all([oneWay, returnTrip, departingCityName, arrivingCityName])
@@ -83,7 +85,21 @@ function searchFlights(flightType, fromAirport, destinationAirport, departureDat
             });
 
             if(flightType == JourneyTypeEnum.RETURN){
-                results.returnTrip = response[1];
+
+                results['returnFlights'] = response[1];
+
+                results.returnFlights.map(function (item, index) {
+                    var departHours = new Date(item.scheduled_departure_time).getHours();
+                    var departMins = new Date(item.scheduled_departure_time).getMinutes();
+
+                    var arrivalHours = new Date(item.scheduled_arrival_time).getHours();
+                    var arrivalMins = new Date(item.scheduled_arrival_time).getMinutes();
+
+                    item['formattedDepartTime'] = util.formatTime(departHours, departMins);
+                    item['formattedArrivalTime'] = util.formatTime(arrivalHours, arrivalMins);
+
+                    item['formattedLegDuration'] = util.getFormattedLegDuration(item.scheduled_departure_time, item.scheduled_arrival_time);
+                });
             }
 
             callback(null, results);

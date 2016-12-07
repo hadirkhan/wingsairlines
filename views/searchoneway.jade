@@ -1,5 +1,5 @@
 extends ./templates/main.jade
-- var shortCode = 
+
 block content
     include ./templates/navbar.jade
     div.S-Rectangle-2
@@ -56,10 +56,8 @@ block content
             div.col-md-12
                 div.S-Departure-Text #{results.departingCityName[0].city_name} to #{results.arrivingCityName[0].city_name} - #{results.formattedDepartureDate}
                 if results.oneWayFlights.length == 0
-                    div.alert.alert-danger(style="margin-top: 65px; font-size: 18px;")
-                        |Sorry, no results found.
-                        br
-                        |Maybe changing the dates would help!
+                    div.alert.alert-danger(style="margin-top: 65px; font-size: 15px;")
+                        |Sorry, no results found. Maybe changing the dates would help!
                 else
                     table.S-Departure-Table.table.table-hover.sortable(cellspacing='10')
                         thead
@@ -128,9 +126,9 @@ block append scripts
             var initialFlightSelectedIndex = initialFlightSelected.split('_')[2];
             var initialDepartureTime = $("#departure_time_"+initialFlightSelectedIndex).text();
             $("#selected_departure_time").text(initialDepartureTime+"\n"+"");
-            $("#selected_departure_time").append("<span>#{results.departingCityName[0].city_shortcode}</span><div class='S-arrow-1'></div>");
+            $("#selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
             var initialArrivalTime = $("#arrival_time_"+initialFlightSelectedIndex).text();
-            $("#selected_arrival_time").text(initialArrivalTime+"\n"+"#{results.arrivingCityName[0].city_shortcode}");
+            $("#selected_arrival_time").text(initialArrivalTime+"\n"+"#{results.arrivingCityName[0]['city_short_code']}");
             var initialPrice = $("#price_"+initialFlightSelectedIndex).text();
             $("#selected_price").text(initialPrice+"\nAmount");
             $("#selected_total_price").text(initialPrice.replace(/ /g, ''));
@@ -140,9 +138,9 @@ block append scripts
                 var flightSelectedIndex = this.id.split('_')[2];
                 var departureTime = $("#departure_time_"+flightSelectedIndex).text();
                 $("#selected_departure_time").text(departureTime+"\n"+"");
-                $("#selected_departure_time").append("<span>#{results.departingCityName[0].city_shortcode}</span><div class='S-arrow-1'></div>");
+                $("#selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
                 var arrivalTime = $("#arrival_time_"+flightSelectedIndex).text();
-                $("#selected_arrival_time").text(arrivalTime+"\n"+"#{results.arrivingCityName[0].city_shortcode}");
+                $("#selected_arrival_time").text(arrivalTime+"\n"+"#{results.arrivingCityName[0]['city_short_code']}");
                 var price = $("#price_"+flightSelectedIndex).text();
                 $("#selected_price").text(price+"\nAmount");
                 $("#selected_total_price").text(price.replace(/ /g, ''));

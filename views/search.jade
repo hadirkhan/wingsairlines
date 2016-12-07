@@ -1,196 +1,204 @@
 extends ./templates/main.jade
 
 block content
-  include ./templates/navbar.jade
-  div.S-Rectangle-2
-    div.row.radio-trip-type(style='left: 105px;top: 60px;')
-      div.col-md-6
-        div.col-md-3
-          input#radio-trip-round(type="radio", checked="true", name="tripType", value="round")
-          label(style="padding-left: 5px", for='radio-trip-round') Round-trip
-        div.col-md-3
-          input#radio-trip-oneway(type="radio", name="tripType", value="oneway")
-          label(style="padding-left: 5px", for='radio-trip-oneway') One-way
-    div.row
-      div.col-md-10.search-box(style='left:90px;top:90px;')
-        div.col-md-1.search-box-item(style="")
-          span(style="font-size:14px; margin-top: 5px;") From:
-          br
-          select.form-control(style="width: 115px; margin-left: 4px;")
-            option(selected="true", value='Chicago') Chicago
-            option(value='Newyork') Newyork
-            option(value='Indiana') Indiana
-            option(value='Mumbai') Mumbai
-        div.col-md-1.search-box-item(style="margin-left: 85px;")
-          span(style="font-size:14px; margin-top: 5px;") To:
-          br
-          select.form-control(style="width: 115px; margin-left: 4px;")
-            option(value='Chicago') Chicago
-            option(selected="true", value='Newyork') Newyork
-            option(value='Indiana') Indiana
-            option(value='Mumbai') Mumbai
-        div.col-md-2.search-box-item(style="margin-left: 65px;")
-          span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
-          input#departDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
-        div.col-md-2.search-box-item
-          span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
-          input#returnDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
-        div.col-md-2.search-box-item
-          span(style="font-size:14px; margin-top: 5px;") Adult
-          div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
-            span#adultCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
-            span#adultCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 1
-            span#adultCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
-        div.col-md-2.search-box-item(style="margin-left: -60px;")
-          span(style="font-size:14px; margin-top: 5px;") Children
-          div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
-            span#childCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
-            span#childCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 0
-            span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
-        div#btn-search
-          button.btn.btn-warning.btn-lg(style="margin-top: 7px;margin-left:13px", type="button")
-              a(href="/search", style="color:white") Edit
-  div.S-Rectangle-3   
-    div.row(style="margin-right: 0px;")
-      div.col-md-6
-        div.S-Departure-Text New York to Indiana - Thursday 27 Oct 2016
-        table.S-Departure-Table.table.table-hover.sortable(cellspacing='10')
-          thead
-            th.S-search-table-header
-            th.S-search-table-header 
-            th.S-search-table-header(style="padding-left: 72px") Departure Time
-            th.S-search-table-header(style="padding-left: 21px") Arrival Time
-            th.S-search-table-header(style="padding-left:0px") Price
-          tbody
-          - for (var i = 0; i< 5; i++)            
-              tr.S-Search-Row
-                td.S-Coloumn-Text(style="vertical-align:middle;")
-                  div.col-md-1
-                    input.flightselect1.S-big-radio-2(type='radio', name='departure-flight')
-                td.S-Coloumn-Text(style="vertical-align:middle;")
-                  div.col-md-1.S-logo
-                    div.S-Wings-Airlines Wings Airlines
-                td.S-Coloumn-Text(style="vertical-align:middle;")  
-                  div.col-md-1
-                    div.S-Departure-Time 02:00 PM
-                      br
-                      span(style="color: #050404;") Non Stop
-                td.S-Coloumn-Text(style="vertical-align:middle;")  
-                  div.col-md-1
-                    div.S-Arrival-Time 04:05 PM
-                      br
-                      span(style="color: #050404;") 2h 05m
-                td.S-Coloumn-Text(style="vertical-align:middle;")  
-                  div.col-md-1 
-                    div.S-Price-label $250
-      div.col-md-6
-        div.S-Departure-Text Indiana to New York- Sunday 30 Oct 2016
-        table.S-Departure-Table.table.table-hover.sortable(cellspacing='10')
-          thead
-            th.S-search-table-header
-            th.S-search-table-header 
-            th.S-search-table-header(style="padding-left: 72px") Departure Time
-            th.S-search-table-header(style="padding-left: 21px") Arrival Time
-            th.S-search-table-header(style="padding-left:0px") Price
-          tbody
-          - for (var i = 0; i< 5; i++)            
-              tr.S-Search-Row
-                td.S-Coloumn-Text(style="vertical-align:middle;")
-                  div.col-md-1
-                    input.flightselect1.S-big-radio-2(type='radio', name='return-flight')
-                td.S-Coloumn-Text(style="vertical-align:middle;")
-                  div.col-md-1.S-logo
-                    div.S-Wings-Airlines Wings Airlines
-                td.S-Coloumn-Text(style="vertical-align:middle;")  
-                  div.col-md-1
-                    div.S-Departure-Time 12:30 PM
-                      br
-                      span(style="color: #050404;") Non Stop
-                td.S-Coloumn-Text(style="vertical-align:middle;")  
-                  div.col-md-1
-                    div.S-Arrival-Time 14:35 PM
-                      br
-                      span(style="color: #050404;") 2h 05m
-                td.S-Coloumn-Text(style="vertical-align:middle;")  
-                  div.col-md-1 
-                    div.S-Price-label $175
-  div.row(style="margin-right:0px")
-    div.col-md-5
-      div.S-Rectangle-4
-        div.col-md-1.S-logo-2
-        div.col-md-1.S-Payment-Wings-Airlines Wings Airlines
-        div.col-md-2.S-Payment-Departure-Time 02:00 PM
-          br
-          span NY
-          div.S-arrow-1
-        div.col-md-2.S-Payment-Arrival-Time 04:05 PM
-          br
-          span IN
-        div.col-md-2.S-Payment-Amount $250
-          br
-          span Amount
-    div.col-md-5
-      div.S-Rectangle-4(style="margin-left: -29px;")
-        div.col-md-1.S-logo-2
-        div.col-md-1.S-Return-Payment-Wings-Airlines Wings Airlines
-        div.col-md-2.S-Return-Payment-Departure-Time 02:00 PM
-          br
-          span NY
-          div.S-arrow-1
-        div.col-md-2.S-Return-Payment-Arrival-Time 04:05 PM
-          br
-          span IN
-        div.col-md-2.S-Return-Payment-Amount $175
-          br
-          span Amount
-    div.col-md-2
-      div.S-Rectangle-4(style="width: 135%;margin-left: -58px;")
-        div.col-md-1.S-Total-Amount(style="font-size:18px") $425
-          br
-          span(style="font-size:15px;") Total
-          br
-          span(style="font-size:15px;") Amount
-        div#btn-search
-          button.btn.btn-warning.btn-lg(style="margin-top: 17px;margin-left: 50px;", type="button")
-              a(href="/payments", style="color:white") BOOK!
+    include ./templates/navbar.jade
+    div.S-Rectangle-2
+        div.row.radio-trip-type(style='left: 105px;top: 60px;')
+            div.col-md-6
+                div.col-md-3
+                    input#radio-trip-round(type="radio", checked="true", name="tripType", value="round")
+                    label(style="padding-left: 5px", for='radio-trip-round') Round-trip
+                div.col-md-3
+                    input#radio-trip-oneway(type="radio", name="tripType", value="oneway")
+                    label(style="padding-left: 5px", for='radio-trip-oneway') One-way
+        div.row
+            div.col-md-10.search-box(style='left:90px;top:90px;')
+                div.col-md-1.search-box-item(style="")
+                    span(style="font-size:14px; margin-top: 5px;") From:
+                    br
+                    select.form-control(style="width: 115px; margin-left: 4px;")
+                        option(selected="true", value='Chicago') Chicago
+                        option(value='Newyork') Newyork
+                        option(value='Indiana') Indiana
+                        option(value='Mumbai') Mumbai
+                div.col-md-1.search-box-item(style="margin-left: 85px;")
+                    span(style="font-size:14px; margin-top: 5px;") To:
+                    br
+                    select.form-control(style="width: 115px; margin-left: 4px;")
+                        option(value='Chicago') Chicago
+                        option(selected="true", value='Newyork') Newyork
+                        option(value='Indiana') Indiana
+                        option(value='Mumbai') Mumbai
+                div.col-md-2.search-box-item(style="margin-left: 65px;")
+                    span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
+                    input#departDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
+                div.col-md-2.search-box-item
+                    span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
+                    input#returnDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
+                div.col-md-2.search-box-item
+                    span(style="font-size:14px; margin-top: 5px;") Adult
+                    div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+                        span#adultCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
+                        span#adultCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 1
+                        span#adultCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
+                div.col-md-2.search-box-item(style="margin-left: -60px;")
+                    span(style="font-size:14px; margin-top: 5px;") Children
+                    div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+                        span#childCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
+                        span#childCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 0
+                        span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
+                div#btn-search
+                    button.btn.btn-warning.btn-lg(style="margin-top: 7px;margin-left:13px", type="button")
+                        a(href="/search", style="color:white") Edit
+    div.S-Rectangle-3
+        div.container
+            div.row(style="margin-right: 0px;")
+                div.S-Departure-Text #{results.departingCityName[0].city_name} to #{results.arrivingCityName[0].city_name} - #{results.formattedDepartureDate}
+                if results.oneWayFlights.length == 0
+                    div.alert.alert-danger(style="margin-top: 65px; font-size: 15px;")
+                        |Sorry, no results found for this search. Maybe changing the dates would help!
+                else
+                    table.S-Departure-Table.table.table-hover.sortable(cellspacing='10')
+                        thead
+                            th.S-search-table-header
+                            th.S-search-table-header Flight No.
+                            th.S-search-table-header(style="padding-left: 72px") Departure Time
+                            th.S-search-table-header(style="padding-left: 21px") Arrival Time
+                            th.S-search-table-header(style="width:25%;") Duration
+                            th.S-search-table-header(style="padding-left:0px") Price
+                        tbody
+                        for item, index in results.oneWayFlights
+                            tr.S-Search-Row
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        input.flightselect1.S-big-radio-2(type='radio', name='departure-flight')
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1.S-logo
+                                        div.S-Wings-Airlines= item.flight_no
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Departure-Time= item.formattedDepartTime
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Arrival-Time= item.formattedArrivalTime
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Leg-Duration-Time= item.formattedLegDuration
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Price-label $ #{item.fare}
+            div.row
+                div.S-Departure-Text #{results.arrivingCityName[0].city_name} to #{results.departingCityName[0].city_name} - #{results.formattedReturnDate}
+                if results.returnFlights.length == 0
+                    div.alert.alert-danger(style="margin-top: 65px; font-size: 15px;")
+                        |Sorry, no results found for this search. Maybe changing the dates would help!
+                else
+                    table.S-Departure-Table.table.table-hover.sortable(cellspacing='10')
+                        thead
+                            th.S-search-table-header
+                            th.S-search-table-header Flight No.
+                            th.S-search-table-header(style="padding-left: 72px") Departure Time
+                            th.S-search-table-header(style="padding-left: 21px") Arrival Time
+                            th.S-search-table-header(style="width:25%;") Duration
+                            th.S-search-table-header(style="padding-left:0px") Price
+                        tbody
+                        for item, index in results.returnFlights
+                            tr.S-Search-Row
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        input.flightselect1.S-big-radio-2(type='radio', name='return-flight')
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1.S-logo
+                                        div.S-Wings-Airlines= item.flight_no
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Departure-Time= item.formattedDepartTime
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Arrival-Time= item.formattedLegDuration
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Leg-Duration-Time= item.formattedLegDuration
+                                td.S-Coloumn-Text(style="vertical-align:middle;")
+                                    div.col-md-1
+                                        div.S-Price-label $ #{item.fare}
+    div.row(style="margin-right:0px")
+        div.col-md-5
+            div.S-Rectangle-4
+                div.col-md-1.S-logo-2
+                div.col-md-1.S-Payment-Wings-Airlines Wings Airlines
+                div.col-md-2.S-Payment-Departure-Time 02:00 PM
+                    br
+                    span NY
+                    div.S-arrow-1
+                div.col-md-2.S-Payment-Arrival-Time 04:05 PM
+                    br
+                    span IN
+                div.col-md-2.S-Payment-Amount $250
+                    br
+                    span Amount
+        div.col-md-5
+            div.S-Rectangle-4(style="margin-left: -29px;")
+                div.col-md-1.S-logo-2
+                div.col-md-1.S-Return-Payment-Wings-Airlines Wings Airlines
+                div.col-md-2.S-Return-Payment-Departure-Time 02:00 PM
+                    br
+                    span NY
+                    div.S-arrow-1
+                div.col-md-2.S-Return-Payment-Arrival-Time 04:05 PM
+                    br
+                    span IN
+                div.col-md-2.S-Return-Payment-Amount $175
+                    br
+                    span Amount
+        div.col-md-2
+            div.S-Rectangle-4(style="width: 135%;margin-left: -58px;")
+                div.col-md-1.S-Total-Amount(style="font-size:18px") $425
+                    br
+                    span(style="font-size:15px;") Total
+                    br
+                    span(style="font-size:15px;") Amount
+                div#btn-search-1
+                    button.btn.btn-warning.btn-lg(style="margin-top: 17px;margin-left: 50px;", type="button")
+                        a(href="/payments", style="color:white") BOOK!
 block footer
 block append scripts
     script.
-      window.onload = function(){
-        var datePickerOptions = {
-          changeMonth: true,
-          changeYear: true,
-          minDate: '0D',
+        window.onload = function(){
+            var datePickerOptions = {
+                changeMonth: true,
+                changeYear: true,
+                minDate: '0D',
+            }
+            $('#departDate').datepicker(datePickerOptions);
+            $('#returnDate').datepicker(datePickerOptions);
+
+            $('#adultCountMinus').on('click', function(){
+                var count = parseInt($('#adultCount').text());
+                if(count && count > 1) {
+                    $('#adultCount').text(count - 1);
+                }
+            });
+            $('#adultCountPlus').on('click', function(){
+                var count = parseInt($('#adultCount').text());
+                if(count && count < 9) {
+                    $('#adultCount').text(count + 1);
+                }
+            });
+
+            $('#childCountMinus').on('click', function(){
+                var count = parseInt($('#childCount').text());
+                if(count > 0) {
+                    $('#childCount').text(count - 1);
+                }
+            });
+            $('#childCountPlus').on('click', function(){
+                var count = parseInt($('#childCount').text());
+                if( count < 9) {
+                    $('#childCount').text(count + 1);
+                }
+            });
         }
-        $('#departDate').datepicker(datePickerOptions);
-        $('#returnDate').datepicker(datePickerOptions);
-
-        $('#adultCountMinus').on('click', function(){
-            var count = parseInt($('#adultCount').text());
-            if(count && count > 1) {
-                $('#adultCount').text(count - 1);
-            }
-        });
-        $('#adultCountPlus').on('click', function(){
-            var count = parseInt($('#adultCount').text());
-            if(count && count < 9) {
-                $('#adultCount').text(count + 1);
-            }
-        });
-
-        $('#childCountMinus').on('click', function(){
-            var count = parseInt($('#childCount').text());
-            if(count > 0) {
-                $('#childCount').text(count - 1);
-            }
-        });
-        $('#childCountPlus').on('click', function(){
-            var count = parseInt($('#childCount').text());
-            if( count < 9) {
-                $('#childCount').text(count + 1);
-            }
-        });
-      }
 
 
 
