@@ -501,6 +501,7 @@ html, body{
 }
 .footer-right-nav-item{
   float: right;
+  margin-right: -15px
 }
 .right-align{
   float: right!important;
