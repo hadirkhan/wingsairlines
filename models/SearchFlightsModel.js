@@ -79,7 +79,6 @@ function searchFlights(flightType, fromAirport, destinationAirport, departureDat
 
                 item['formattedDepartTime'] = util.formatTime(departHours, departMins);
                 item['formattedArrivalTime'] = util.formatTime(arrivalHours, arrivalMins);
-
                 item['formattedLegDuration'] = util.getFormattedLegDuration(item.scheduled_departure_time, item.scheduled_arrival_time);
             });
 
