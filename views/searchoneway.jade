@@ -134,7 +134,7 @@ block append scripts
             var initialPrice = $("#price_"+initialFlightSelectedIndex).text();
             $("#selected_price").text(initialPrice+"\nAmount");
             $("#selected_total_price").text(initialPrice.replace(/ /g, ''));
-            //$("#selected_total_price").append("<br /><span style");
+            $("#flightname").text($("#flight_no_"+initialFlightSelectedIndex).text());
             $('input[type=radio][name=departure-flight]').on('change', function() 
             {
                 var flightSelectedIndex = this.id.split('_')[2];
@@ -146,6 +146,7 @@ block append scripts
                 var price = $("#price_"+flightSelectedIndex).text();
                 $("#selected_price").text(price+"\nAmount");
                 $("#selected_total_price").text(price.replace(/ /g, ''));
+                $("#flightname").text($("#flight_no_"+flightSelectedIndex).text());
             });
             var datePickerOptions = 
             {
