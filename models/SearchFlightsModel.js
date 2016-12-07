@@ -5,12 +5,19 @@ const JourneyTypeEnum = require('../utilities/JourneyTypeEnum');
 function getFlights(departingAirportCode, arrivalAirportCode, dateOfTravel) {
 
     return new Promise(function (resolve, reject) {
+        /*
         const searchQuery = "SELECT fl.flight_no, fl.scheduled_departure_time, fl.scheduled_arrival_time, fl.leg_duration, f.fare, fl.leg_no " +
             "FROM fare f JOIN route r ON r.route_id = f.route_id " +
             "JOIN flight_leg fl ON f.route_id = fl.route_id " +
             "JOIN leg_instance l ON fl.flight_no = l.flight_no " +
             "WHERE r.departure_airport_code = ? AND r.arrival_airport_code = ? " +
             "AND l.date_of_travel = ? AND l.leg_no = fl.leg_no;";
+        */
+        const searchQuery = "SELECT fl.flight_no, fl.scheduled_departure_time, fl.scheduled_arrival_time, fl.leg_duration, " +
+            "fr.fare, l.date_of_travel , fl.route_id , l.leg_no FROM flight_leg AS fl LEFT JOIN flight AS f ON (fl.flight_no = f.flight_no) " +
+            "JOIN leg_instance l ON fl.flight_no = l.flight_no LEFT JOIN route AS r ON (fl.route_id = r.route_id) " +
+            "LEFT JOIN fare AS fr ON (fl.route_id = fr.route_id AND fl.flight_no = fr.special_code) " +
+            "WHERE r.departure_airport_code = ? AND r.arrival_airport_code = ? AND l.date_of_travel = ? AND l.leg_no = fl.leg_no;";
 
         dbutil.getConnection().query(searchQuery, [departingAirportCode, arrivalAirportCode, dateOfTravel], function(err, rows, fields){
             if(!err) {

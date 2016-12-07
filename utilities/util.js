@@ -45,12 +45,20 @@ function getFormattedLegDuration(departureTimestamp, arrivalTimestamp) {
     var departure = new Date(departureTimestamp);
     var arrival = new Date(arrivalTimestamp);
     var diff = (arrival - departure)/ 1000 / 60 ;
-    console.log((diff/60).toString().split(".")[0]+"h"+diff%60+"m");
+
+    /*
     var hours = Math.abs(arrival.getHours() - departure.getHours());
     hours = hours < 10 ? '0'+hours : hours;
     var mins = Math.abs(arrival.getMinutes() - departure.getMinutes());
     mins = mins < 10 ? '0'+mins : mins;
-    return  (diff/60).toString().split(".")[0]+"h "+diff%60+"m";
+    */
+
+    var tempArr = (diff/60).toString().split(".");
+    var hours = tempArr[0], mins = diff%60;
+    var hoursStr = hours == 0 ? '' : (hours < 10 ? '0'+hours : hours) + 'h';
+    var minsStr = mins == 0 ? '' : (mins < 10 ? '0'+mins : mins) + 'm';
+
+    return hoursStr + minsStr;
 }
 
 

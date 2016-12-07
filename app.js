@@ -37,7 +37,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(session({
-    secret: process.env.SESSION_SECRET
+    secret: process.env.SESSION_SECRET,
+    cookie: {
+        maxAge: 60000
+    }
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 

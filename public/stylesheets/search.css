@@ -41,7 +41,7 @@ src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
     font-stretch: condensed;
     text-align: center;
     color: #ffffff;
-    width: 95px;
+    width: 100px;
     margin-left: -15px;
     margin-top: 18px;
 }
@@ -54,7 +54,7 @@ src: url('/fonts/fonts-roboto/Roboto-Medium.ttf');
     font-stretch: condensed;
     text-align: center;
     color: #ffffff;
-    width: 95px;
+    width: 100px;
     margin-top: 18px;
     margin-left: 43px;
 }

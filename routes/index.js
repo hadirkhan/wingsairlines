@@ -8,7 +8,7 @@ var searchModule = require('../models/SearchFlightsModel');
 var homepageModule = require('../models/HomePageModel');
 
 router.get('/', function(req, res, next) {
-    homepageModule.searchFlights(handleResults);
+    homepageModule.getAirportsList(handleResults);
     function handleResults(err, data){
         if(err){
             throw err;
@@ -22,21 +22,40 @@ router.post('/search', function(req, res, next) {
 
     if(req.body.tripType){
 
+        var airportsData;
+
+
         var params = req.body;
 
-        //req.session.userSearchParams = params;
+        req.session.userSearchParams = params;
 
         searchModule.searchFlights(params.tripType, params.departureAirportCode, params.destinationAirportCode, params.departDate, params.returnDate,
             function (err, data) {
                 if(err){
                     console.error('Error in searching flight records!');
                 } else {
-                    if(params.tripType == JourneyTypeEnum.ONE_WAY){
-                        res.render('searchoneway', { title: 'Flight Search' , searchParams: params, results: data});
-                    } else {
-                        console.log('results in return: ', data);
-                        res.render('search', { title: 'Flight Search' , searchParams: params, results: data});
-                    }
+
+                    homepageModule.getAirportsList(function (err, airportsList) {
+                        if(err){
+                            throw err;
+                        } else if (airportsList){
+                            if(params.tripType == JourneyTypeEnum.ONE_WAY){
+                                params.isOneway = true;
+                                res.render('searchoneway', { title: 'Flight Search' ,
+                                    airportsList: airportsList,
+                                    searchParams: params,
+                                    results: data
+                                });
+                            } else {
+                                params.isRoundtrip = true;
+                                res.render('search', { title: 'Flight Search',
+                                    airportsList: airportsList,
+                                    searchParams: params,
+                                    results: data
+                                });
+                            }
+                        }
+                    });
                 }
             });
     } else {
@@ -46,7 +65,12 @@ router.post('/search', function(req, res, next) {
 });
 
 router.get('/payments', function(req, res, next) {
-    res.render('payments', { title: 'Payments' });
+    if(req.session){
+        res.render('payments', { title: 'Payments' });
+    } else {
+        console.info('Redirected user to index page from direct payments');
+        res.redirect('/');
+    }
 });
 
 router.get('/confirmation', function(req, res, next){

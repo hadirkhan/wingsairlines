@@ -1,34 +1,29 @@
 extends ./templates/main.jade
-
 block content
     include ./templates/navbar.jade
     div.S-Rectangle-2
         div.row.radio-trip-type(style='left: 105px;top: 60px;')
             div.col-md-6
-                div.col-md-3
-                    input#radio-trip-round(type="radio", checked="true", name="tripType", value="round")
-                    label(style="padding-left: 5px", for='radio-trip-round') Round-trip
-                div.col-md-3
-                    input#radio-trip-oneway(type="radio", name="tripType", value="oneway")
-                    label(style="padding-left: 5px", for='radio-trip-oneway') One-way
+                div.col-md-4
+                    input#radio-trip-round(type="radio", name="tripType", checked=searchParams.isRoundtrip, value="round")
+                    label(style="padding-left: 5px", for='radio-trip-round') ROUND-TRIP
+                div.col-md-4
+                    input#radio-trip-oneway(type="radio", name="tripType", checked=searchParams.isOneway, value="oneway")
+                    label(style="padding-left: 5px", for='radio-trip-oneway') ONE-WAY
         div.row
             div.col-md-10.search-box(style='left:90px;top:90px;')
                 div.col-md-1.search-box-item
                     span(style="font-size:14px; margin-top: 5px;") From:
                     br
-                    select.form-control(style="width: 115px; margin-left: 4px;")
-                        option(selected="true", value='Chicago') Chicago
-                        option(value='Newyork') Newyork
-                        option(value='Indiana') Indiana
-                        option(value='Mumbai') Mumbai
+                    select#departAirportSelect.form-control(name="departureAirportCode", style="width: 143px; margin-left: 4px;")
+                        each value, key in airportsList
+                            option(value='#{key}', selected= (key == searchParams.departureAirportCode)) #{value}
                 div.col-md-1.search-box-item(style="margin-left: 85px;")
                     span(style="font-size:14px; margin-top: 5px;") To:
                     br
-                    select.form-control(style="width: 115px; margin-left: 4px;")
-                        option(value='Chicago') Chicago
-                        option(selected="true", value='Newyork') Newyork
-                        option(value='Indiana') Indiana
-                        option(value='Mumbai') Mumbai
+                    select#destAirporlSelect.form-control(name="destinationAirportCode", style="width: 143px; margin-left: 4px;")
+                        each value, key in airportsList
+                            option(value='#{key}', selected = key == searchParams.destinationAirportCode) #{value}
                 div.col-md-2.search-box-item(style="margin-left: 65px;")
                     span.glyphicon.glyphicon-calendar(style="line-height: 30px;")
                     input#departDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Depart Date")
@@ -37,19 +32,18 @@ block content
                     input#returnDate.form-control(style="margin-left: 5px;", readonly='true', type="text", placeholder="Return Date")
                 div.col-md-2.search-box-item
                     span(style="font-size:14px; margin-top: 5px;") Adult
-                    div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+                    div(style="display: inline-flex; margin-left: 5px;")
                         span#adultCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
-                        span#adultCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 1
+                        input#adultCount.form-control(name="adultCount", type="text", readonly="true", value = searchParams.adultCount, style="margin: 0px 5px 0px 5px; width: 40%; padding-right: 10px; text-align: center;")
                         span#adultCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
                 div.col-md-2.search-box-item(style="margin-left: -60px;")
                     span(style="font-size:14px; margin-top: 5px;") Children
-                    div(style="display: inline-flex; margin-left: 5px; border: 1px solid #9E9E9E;")
+                    div(style="display: inline-flex; margin-left: 5px;")
                         span#childCountMinus.glyphicon.glyphicon-minus(style="line-height: 30px;")
-                        span#childCount.form-control(style="margin: 0px 5px 0px 5px; width: 30px; padding-right: 20px;") 0
+                        input#childCount.form-control(name="childCount", readonly="true", type="text", value = searchParams.childCount, style="margin: 0px 5px 0px 5px; width: 40%; padding-right: 10px; text-align: center;")
                         span#childCountPlus.glyphicon.glyphicon-plus(style="line-height: 30px;")
                 div#btn-search-1
-                    button.btn.btn-warning.btn-lg(style="margin-top: 7px;margin-left:13px", type="button")
-                        a(href="/search", style="color:white") Edit
+                    input.btn.btn-warning.btn-lg(style="margin-top: 7px;margin-left:13px", value='Edit', type="submit")
     div.S-Rectangle-3
         div.row(style="margin-right: 0px;")
         div.container
@@ -72,114 +66,139 @@ block content
                                 tr.S-Search-Row
                                     td.S-Coloumn-Text(style="vertical-align:middle;")
                                         div.col-md-1
-                                            input.flightselect1.S-big-radio-2(id='flight_record_#{index}')(type='radio', name='departure-flight')
+                                            input.flightselect1.S-big-radio-2(id='flight_record_#{index}', type='radio', name='departure-flight')
                                     td.S-Coloumn-Text(style="vertical-align:middle;")
                                         div.col-md-1.S-logo
                                             div.S-Wings-Airlines(id='flight_no_#{index}')= item.flight_no
                                     td.S-Coloumn-Text(style="vertical-align:middle;")
                                         div.col-md-1
-                                            div.S-Departure-Time(id='departure_time_#{index}')(style='margin-top: 23px;')= item.formattedDepartTime
+                                            div.S-Departure-Time(id='departure_time_#{index}', style='margin-top: 23px;')= item.formattedDepartTime
                                     td.S-Coloumn-Text(style="vertical-align:middle;")
                                         div.col-md-1
-                                            div.S-Arrival-Time(id='arrival_time_#{index}')(style='margin-top: 23px;')= item.formattedArrivalTime
+                                            div.S-Arrival-Time(id='arrival_time_#{index}', style='margin-top: 23px;')= item.formattedArrivalTime
                                     td.S-Coloumn-Text(style="vertical-align:middle;")
                                         div.col-md-1
-                                            div.S-Leg-Duration-Time(id='duration_time_#{index}')(style='margin-top:23px')= item.formattedLegDuration
+                                            div.S-Leg-Duration-Time(id='duration_time_#{index}', style='margin-top:23px')= item.formattedLegDuration
                                     td.S-Coloumn-Text(style="vertical-align:middle;")
                                         div.col-md-1
                                             div.S-Price-label(id='price_#{index}') $#{item.fare}
-    div.row(style="margin-right:0px")
-        div.col-md-10
-            div.S-Rectangle-4
-                div.col-md-1.S-logo-2(style="margin-left: 375px;")
-                div.col-md-1.S-Payment-Wings-Airlines(id="flightname") Wings Airlines
-                div.col-md-2.S-Payment-Departure-Time(id="selected_departure_time") 02:00 PM
-                    br
-                    span NY
-                    div.S-arrow-1
-                div.col-md-2.S-Payment-Arrival-Time(id="selected_arrival_time") 04:05 PM
-                    br
-                    span IN
-                div.col-md-2.S-Payment-Amount(id="selected_price") $250
-                    br
-                    span Amount
-        div.col-md-2
-            div.S-Rectangle-4(style="width: 137%;margin-left: -58px;")
-                div.col-md-1.S-Total-Amount(style="font-size:18px")
-                    span(id="selected_total_price") $250
-                    br
-                    span(style="font-size:15px;") Total
-                    br
-                    span(style="font-size:15px;") Amount
-                div#btn-search
-                    button.btn.btn-warning.btn-lg(style="margin-top: 17px;margin-left: 50px;", type="button")
-                        a(href="/payments", style="color:white") BOOK!
+    if results.oneWayFlights.length != 0
+        div.row(style="margin-right:0px")
+            div.col-md-10
+                div.S-Rectangle-4
+                    div.col-md-1.S-logo-2(style="margin-left: 375px;")
+                    div.col-md-1.S-Payment-Wings-Airlines(id="flightName")
+                    div.col-md-2.S-Payment-Departure-Time(id="selected_departure_time")
+                        br
+                        span
+                        div.S-arrow-1
+                    div.col-md-2.S-Payment-Arrival-Time(id="selected_arrival_time")
+                        br
+                        span
+                    div.col-md-2.S-Payment-Amount(id="selected_price")
+                        br
+                        span
+            div.col-md-2
+                div.S-Rectangle-4(style="width: 137%;margin-left: -58px;")
+                    div.col-md-1.S-Total-Amount(style="font-size:18px")
+                        span(id="selected_total_price")
+                        br
+                        span(style="font-size:15px;")
+                        br
+                        span(style="font-size:15px;")
+                    div
+                        input#btnBook.btn.btn-warning.btn-lg(style="color:white; margin-top: 17px; margin-left: 50px;", value="Book!", type="button")
 block footer
 block append scripts
     script.
-        window.onload = function()
-        {
-            //for item, index in results.oneWayFlights
+        window.onload = function() {
+
             $('input:radio[name=departure-flight]')[0].checked = true;
-            //var flightSelected = 
+
             var initialFlightSelected = $('input[type=radio][name=departure-flight]:checked').attr('id');
             var initialFlightSelectedIndex = initialFlightSelected.split('_')[2];
-            var initialDepartureTime = $("#departure_time_"+initialFlightSelectedIndex).text();
-            $("#selected_departure_time").text(initialDepartureTime+"\n"+"");
+            var initialDepartureTime = $("#departure_time_" + initialFlightSelectedIndex).text();
+
+            $("#selected_departure_time").text(initialDepartureTime + "\n" + "");
             $("#selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
-            var initialArrivalTime = $("#arrival_time_"+initialFlightSelectedIndex).text();
-            $("#selected_arrival_time").text(initialArrivalTime+"\n"+"#{results.arrivingCityName[0]['city_short_code']}");
-            var initialPrice = $("#price_"+initialFlightSelectedIndex).text();
-            $("#selected_price").text(initialPrice+"\nAmount");
+
+            var initialArrivalTime = $("#arrival_time_" + initialFlightSelectedIndex).text();
+
+            $("#selected_arrival_time").text(initialArrivalTime + "\n" + "#{results.arrivingCityName[0]['city_short_code']}");
+
+            var initialPrice = $("#price_" + initialFlightSelectedIndex).text();
+
+            $("#selected_price").text(initialPrice + "\nAmount");
             $("#selected_total_price").text(initialPrice.replace(/ /g, ''));
-            $("#flightname").text($("#flight_no_"+initialFlightSelectedIndex).text());
-            $('input[type=radio][name=departure-flight]').on('change', function() 
-            {
+            $("#flightName").text($("#flight_no_" + initialFlightSelectedIndex).text());
+            $('input[type=radio][name=departure-flight]').on('change', function () {
                 var flightSelectedIndex = this.id.split('_')[2];
-                var departureTime = $("#departure_time_"+flightSelectedIndex).text();
-                $("#selected_departure_time").text(departureTime+"\n"+"");
+                var departureTime = $("#departure_time_" + flightSelectedIndex).text();
+                $("#selected_departure_time").text(departureTime + "\n" + "");
                 $("#selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
-                var arrivalTime = $("#arrival_time_"+flightSelectedIndex).text();
-                $("#selected_arrival_time").text(arrivalTime+"\n"+"#{results.arrivingCityName[0]['city_short_code']}");
-                var price = $("#price_"+flightSelectedIndex).text();
-                $("#selected_price").text(price+"\nAmount");
+                var arrivalTime = $("#arrival_time_" + flightSelectedIndex).text();
+                $("#selected_arrival_time").text(arrivalTime + "\n" + "#{results.arrivingCityName[0]['city_short_code']}");
+                var price = $("#price_" + flightSelectedIndex).text();
+
+                $("#selected_price").text(price + "\nAmount");
                 $("#selected_total_price").text(price.replace(/ /g, ''));
-                $("#flightname").text($("#flight_no_"+flightSelectedIndex).text());
+                $("#flightName").text($("#flight_no_" + flightSelectedIndex).text());
             });
-            var datePickerOptions = 
-            {
+
+
+            $('#radio-trip-round').on('change', function () {
+                $('#returnDate').attr('disabled', false);
+            });
+
+            $('#radio-trip-oneway').on('change', function () {
+                $('#returnDate').attr('disabled', true);
+            });
+
+            var datePickerOptions = {
+                dateFormat: 'yy-mm-dd',
                 changeMonth: true,
                 changeYear: true,
-                minDate: '0D',
-            }
+                minDate: '0D'
+            };
+
             $('#departDate').datepicker(datePickerOptions);
+            $('#departDate').datepicker('setDate', "#{searchParams.departDate}");
+
             $('#returnDate').datepicker(datePickerOptions);
+            $('#returnDate').datepicker('setDate', "#{searchParams.returnDate}");
 
-            $('#adultCountMinus').on('click', function(){
-                var count = parseInt($('#adultCount').text());
-                if(count && count > 1) {
-                    $('#adultCount').text(count - 1);
+
+            $('#adultCountMinus').on('click', function () {
+                var count = parseInt($('#adultCount').val());
+                if (count > 1) {
+                    $('#adultCount').val(count - 1);
                 }
             });
-            $('#adultCountPlus').on('click', function(){
-                var count = parseInt($('#adultCount').text());
-                if(count && count < 9) {
-                    $('#adultCount').text(count + 1);
+            $('#adultCountPlus').on('click', function () {
+                var count = parseInt($('#adultCount').val());
+                if (count < 9) {
+                    $('#adultCount').val(count + 1);
                 }
             });
 
-            $('#childCountMinus').on('click', function(){
-                var count = parseInt($('#childCount').text());
-                if(count > 0) {
-                    $('#childCount').text(count - 1);
+            $('#childCountMinus').on('click', function () {
+                var count = parseInt($('#childCount').val());
+                if (count > 1) {
+                    $('#childCount').val(count - 1);
                 }
             });
-            $('#childCountPlus').on('click', function(){
-                var count = parseInt($('#childCount').text());
-                if( count < 9) {
-                    $('#childCount').text(count + 1);
+            $('#childCountPlus').on('click', function () {
+                var count = parseInt($('#childCount').val());
+                if (count < 9) {
+                    $('#childCount').val(count + 1);
                 }
             });
+
+
+            $('#btnBook').on('click', function (e) {
+
+            });
+
         }
 
 

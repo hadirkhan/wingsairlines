@@ -1,6 +1,6 @@
 const dbutil = require('../utilities/DatabaseConnectionUtility.js');
 
-function searchFlights(callback) {
+function getAirportsList(callback) {
     var results = {};
     const conn = dbutil.getConnection();
     var allPromises;
@@ -37,5 +37,5 @@ function searchFlights(callback) {
 }
 
 module.exports = {
-    searchFlights: searchFlights
+    getAirportsList: getAirportsList
 }
