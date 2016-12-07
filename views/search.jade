@@ -71,22 +71,22 @@ block content
                             tr.S-Search-Row
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        input.flightselect1.S-big-radio-2(type='radio', name='departure-flight')
+                                        input.flightselect1.S-big-radio-2(type='radio', name='departure-flight',id='d_flight_record_#{index}')
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1.S-logo
-                                        div.S-Wings-Airlines= item.flight_no
+                                        div.S-Wings-Airlines(id='d_flight_no_#{index}')= item.flight_no
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Departure-Time= item.formattedDepartTime
+                                        div.S-Departure-Time(style='margin-top: 23px;',id='d_departure_time_#{index}')= item.formattedDepartTime
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Arrival-Time= item.formattedArrivalTime
+                                        div.S-Arrival-Time(style='margin-top: 23px;',id='d_arrival_time_#{index}')= item.formattedArrivalTime
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Leg-Duration-Time= item.formattedLegDuration
+                                        div.S-Leg-Duration-Time(style='margin-top: 23px;',id='d_duration_time_#{index}')= item.formattedLegDuration
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Price-label $ #{item.fare}
+                                        div.S-Price-label(id='d_price_#{index}') $ #{item.fare}
             div.row
                 div.S-Departure-Text #{results.arrivingCityName[0].city_name} to #{results.departingCityName[0].city_name} - #{results.formattedReturnDate}
                 if results.returnFlights.length == 0
@@ -106,54 +106,55 @@ block content
                             tr.S-Search-Row
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        input.flightselect1.S-big-radio-2(type='radio', name='return-flight')
+                                        input.flightselect1.S-big-radio-2(type='radio', name='return-flight',id='r_flight_record_#{index}')
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1.S-logo
-                                        div.S-Wings-Airlines= item.flight_no
+                                        div.S-Wings-Airlines(id='r_flight_no_#{index}')= item.flight_no
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Departure-Time= item.formattedDepartTime
+                                        div.S-Departure-Time(style='margin-top: 23px;',id='r_departure_time_#{index}')= item.formattedDepartTime
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Arrival-Time= item.formattedArrivalTime
+                                        div.S-Arrival-Time(style='margin-top: 23px;',id='r_arrival_time_#{index}')= item.formattedArrivalTime
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Leg-Duration-Time= item.formattedLegDuration
+                                        div.S-Leg-Duration-Time(style='margin-top: 23px;',id='r_duration_time_#{index}')= item.formattedLegDuration
                                 td.S-Coloumn-Text(style="vertical-align:middle;")
                                     div.col-md-1
-                                        div.S-Price-label $ #{item.fare}
+                                        div.S-Price-label(id='r_price_#{index}')$ #{item.fare}
     div.row(style="margin-right:0px")
         div.col-md-5
             div.S-Rectangle-4
                 div.col-md-1.S-logo-2
-                div.col-md-1.S-Payment-Wings-Airlines Wings Airlines
-                div.col-md-2.S-Payment-Departure-Time 02:00 PM
+                div.col-md-1.S-Payment-Wings-Airlines(id="d_flightname") Wings Airlines
+                div.col-md-2.S-Payment-Departure-Time(id="d_selected_departure_time") 02:00 PM
                     br
                     span NY
                     div.S-arrow-1
-                div.col-md-2.S-Payment-Arrival-Time 04:05 PM
+                div.col-md-2.S-Payment-Arrival-Time(id="d_selected_arrival_time") 04:05 PM
                     br
                     span IN
-                div.col-md-2.S-Payment-Amount $250
+                div.col-md-2.S-Payment-Amount(id="d_selected_price") $250
                     br
                     span Amount
         div.col-md-5
             div.S-Rectangle-4(style="margin-left: -29px;")
                 div.col-md-1.S-logo-2
-                div.col-md-1.S-Return-Payment-Wings-Airlines Wings Airlines
-                div.col-md-2.S-Return-Payment-Departure-Time 02:00 PM
+                div.col-md-1.S-Return-Payment-Wings-Airlines(id="r_flightname") Wings Airlines
+                div.col-md-2.S-Return-Payment-Departure-Time(id="r_selected_departure_time") 02:00 PM
                     br
                     span NY
                     div.S-arrow-1
-                div.col-md-2.S-Return-Payment-Arrival-Time 04:05 PM
+                div.col-md-2.S-Return-Payment-Arrival-Time(id="r_selected_arrival_time") 04:05 PM
                     br
                     span IN
-                div.col-md-2.S-Return-Payment-Amount $175
+                div.col-md-2.S-Return-Payment-Amount(id="r_selected_price") $175
                     br
                     span Amount
         div.col-md-2
             div.S-Rectangle-4(style="width: 135%;margin-left: -58px;")
-                div.col-md-1.S-Total-Amount(style="font-size:18px") $425
+                div.col-md-1.S-Total-Amount(style="font-size:18px") 
+                    span(id="selected_total_price") $425
                     br
                     span(style="font-size:15px;") Total
                     br
@@ -164,7 +165,68 @@ block content
 block footer
 block append scripts
     script.
-        window.onload = function(){
+        window.onload = function()
+        {
+            //departure-flight
+            $('input:radio[name=departure-flight]')[0].checked = true;
+            $('input:radio[name=return-flight]')[0].checked = true;
+            var initialDFlightSelected = $('input[type=radio][name=departure-flight]:checked').attr('id');
+            var initialDFlightSelectedIndex = initialDFlightSelected.split('_')[3];
+            var initialDDepartureTime = $("#d_departure_time_"+initialDFlightSelectedIndex).text();
+            $("#d_selected_departure_time").text(initialDDepartureTime+"\n"+"");
+            $("#d_selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
+            var initialDArrivalTime = $("#d_arrival_time_"+initialDFlightSelectedIndex).text();
+            $("#d_selected_arrival_time").text(initialDArrivalTime+"\n"+"#{results.arrivingCityName[0]['city_short_code']}");
+            var initialDPrice = $("#d_price_"+initialDFlightSelectedIndex).text();
+            $("#d_selected_price").text(initialDPrice+"\nAmount");
+            $("#d_flightname").text($("#d_flight_no_"+initialDFlightSelectedIndex).text());
+            //return-flight
+            var initialRFlightSelected = $('input[type=radio][name=return-flight]:checked').attr('id');
+            var initialRFlightSelectedIndex = initialRFlightSelected.split('_')[3];
+            var initialRDepartureTime = $("#r_departure_time_"+initialRFlightSelectedIndex).text();
+            $("#r_selected_departure_time").text(initialRDepartureTime+"\n"+"");
+            $("#r_selected_departure_time").append("<span>#{results.arrivingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
+            var initialRArrivalTime = $("#r_arrival_time_"+initialRFlightSelectedIndex).text();
+            $("#r_selected_arrival_time").text(initialRArrivalTime+"\n"+"#{results.departingCityName[0]['city_short_code']}");
+            var initialRPrice = $("#r_price_"+initialRFlightSelectedIndex).text();
+            $("#r_selected_price").text(initialRPrice+"\nAmount");
+            $("#r_flightname").text($("#r_flight_no_"+initialRFlightSelectedIndex).text()); 
+            //total price
+            var dPrice;
+            var rPrice;
+            var initialtotalPrice = parseInt(initialDPrice.split(" ")[1]) + parseInt(initialRPrice.split(" ")[1]);
+            $('input[type=radio][name=departure-flight]').on('change', function() 
+            {
+                var dFlightSelectedIndex = this.id.split('_')[3];
+                var dDepartureTime = $("#d_departure_time_"+dFlightSelectedIndex).text();
+                $("#d_selected_departure_time").text(dDepartureTime+"\n"+"");
+                $("#d_selected_departure_time").append("<span>#{results.departingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
+                var dArrivalTime = $("#d_arrival_time_"+dFlightSelectedIndex).text();
+                $("#d_selected_arrival_time").text(dArrivalTime+"\n"+"#{results.arrivingCityName[0]['city_short_code']}");
+                dPrice = $("#d_price_"+dFlightSelectedIndex).text();
+                $("#d_selected_price").text(dPrice+"\nAmount");
+                //$("#selected_total_price").text(price.replace(/ /g, ''));
+                $("#d_flightname").text($("#d_flight_no_"+dFlightSelectedIndex).text());
+                var dTotalPrice = parseInt(dPrice.split(" ")[1]) + parseInt(rPrice.split(" ")[1]);
+                $("#selected_total_price").text("$"+dTotalPrice.toString());
+            });
+            $('input[type=radio][name=return-flight]').on('change', function() 
+            {
+                var rFlightSelectedIndex = this.id.split('_')[3];
+                var rDepartureTime = $("#r_departure_time_"+rFlightSelectedIndex).text();
+                $("#r_selected_departure_time").text(rDepartureTime+"\n"+"");
+                $("#r_selected_departure_time").append("<span>#{results.arrivingCityName[0]['city_short_code']}</span><div class='S-arrow-1'></div>");
+                var rArrivalTime = $("#r_arrival_time_"+rFlightSelectedIndex).text();
+                $("#r_selected_arrival_time").text(rArrivalTime+"\n"+"#{results.departingCityName[0]['city_short_code']}");
+                rPrice = $("#r_price_"+rFlightSelectedIndex).text();
+                $("#r_selected_price").text(rPrice+"\nAmount");
+                //$("#selected_total_price").text(price.replace(/ /g, ''));
+                $("#r_flightname").text($("#r_flight_no_"+rFlightSelectedIndex).text());
+                var rTotalPrice = parseInt(dPrice.split(" ")[1]) + parseInt(rPrice.split(" ")[1]);
+                $("#selected_total_price").text("$"+rTotalPrice.toString());
+            }); 
+            $("#selected_total_price").text("$"+initialtotalPrice.toString());
+
             var datePickerOptions = {
                 changeMonth: true,
                 changeYear: true,
