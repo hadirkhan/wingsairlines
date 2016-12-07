@@ -9,18 +9,60 @@ block content
       div.cofirmation-text-msg 
         | Check and Downlod Your Booking Here
    div.container
-     input.p-box(type='text', name='PNR', placeholder='PNR Number' required)(style='margin-left:480px ; margin-top:20px')
+     input#pnrtext.p-box(type='text', name='PNR', placeholder='PNR Number' maxlength="10" required)(style='margin-left:480px ; margin-top:20px')
      div
        div#p-continue1.col-sm-2.col-md-2.col-lg-2
          button.btn.btn-warning.btn-md.p-rectangle-5(style='margin-left:320px; margin-top:50px')
            label.p-continue Download
-       div#p-continue1.col-sm-2.col-md-2.col-lg-2
+       div#p-continue2.col-sm-2.col-md-2.col-lg-2
          button.btn.btn-warning.btn-md.p-rectangle-5(style='margin-left:400px ; margin-top:50px')
            label.p-continue Cancel
-           //- if results.reservation_status == 'Cancelled'
-           //-    div.alert.alert-danger(style="margin-top: 65px; font-size: 18px;")
-           //-      |Your Ticket has been Cancelled
-           //-      br
-           //-      |Refund has been started!
+              div.alertcontainer1
+                div.alert.alert-danger(style="margin-top: 65px; font-size: 18px;")
+                  |Your Ticket has been Cancelled
+                  br
+                  |Refund has been initiated!
+              div.alertcontainer3
+                div.alert.alert-danger(style="margin-top: 65px; font-size: 18px;")
+                  |Your Ticket has been mailed to the contact mail ID
+                  
+              div.alertcontainer2
+                div.alert.alert-danger(style="margin-top: 65px; font-size: 18px;")
+                  |Invalid PNR....
+                 
 
    div(style='height:150px')  
+
+block append scripts
+  script.
+    $("#p-continue2").on("click",function(){
+    var pnr = document.getElementById("pnrtext").value.trim();
+    if(pnr == "xyze10by78" || pnr =="xyz1234567")
+      {
+      $(".alertcontainer2").css('display','none')
+      $(".alertcontainer3").css('display','none')
+      $(".alertcontainer1").css('display','block')
+      }
+    else
+      {
+      $(".alertcontainer3").css('display','none')
+      $(".alertcontainer1").css('display','none')
+      $(".alertcontainer2").css('display','block')
+      }
+    });
+
+    $("#p-continue1").on("click",function(){
+    var pnr = document.getElementById("pnrtext").value.trim();
+    if(pnr == "xyze10by78" || pnr =="xyz1234567")
+      {
+      $(".alertcontainer1").css('display','none')
+      $(".alertcontainer2").css('display','none')
+      $(".alertcontainer3").css('display','block')
+      }
+    else{
+      $(".alertcontainer3").css('display','none')
+      $(".alertcontainer1").css('display','none')
+      $(".alertcontainer2").css('display','block')
+      }
+      
+    });
