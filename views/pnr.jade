@@ -14,7 +14,8 @@ block content
      div
        div#p-continue1.col-sm-2.col-md-2.col-lg-2
          button.btn.btn-warning.btn-md.p-rectangle-5(style='margin-left:320px; margin-top:50px')
-           label.p-continue Email
+           label.p-continue
+             a(style='color: #ffffff', onclick="printClick()") Print
        div#p-continue2.col-sm-2.col-md-2.col-lg-2
          button.btn.btn-warning.btn-md.p-rectangle-5(style='margin-left:400px ; margin-top:50px')
            label.p-continue Cancel
@@ -67,3 +68,8 @@ block append scripts
       }
       
     });
+          
+      function printClick()
+       {
+        window.location.href='/print';
+       }

@@ -36,10 +36,27 @@ block content
       | A copy of ticket is mailed to you.
       br
       | Thank you for using Wings Airlines!
-    input#pnrtext.p-box(type='text', name='Email', placeholder='Email Address' required)(style='margin-left:480px ; margin-top:20px')
+    //- input#pnrtext.p-box(type='text', name='Email', placeholder='Email Address' required)(style='margin-left:480px ; margin-top:20px')
   div.container
     div#p-continue1.col-sm-2.col-sm-2.col-sm-2
       button.btn.btn-warning.btn-sm.p-rectangle-5(style='margin-left:480px; margin-top:10px')
-        label.p-continue Email
-
+        label.p-continue 
+          a(style='color: #ffffff', onclick="printClick()") Print
   div(style='height:20px')
+
+ block append scripts
+  script.             
+      function printClick()
+       {
+        window.location.href='/print';
+       }
+
+
+
+
+  //- div.container
+  //-   div#p-continue1.col-sm-2.col-sm-2.col-sm-2
+  //-     button.btn.btn-warning.btn-sm.p-rectangle-5(style='margin-left:480px; margin-top:10px')
+  //-       label.p-continue Email
+
+  //- div(style='height:20px')

@@ -112,6 +112,48 @@ router.post('/payments', function(req, res, next) {
 });
 
 router.get('/confirmation', function(req, res, next){
+    /////////////////////////////////////////
+// Initialize Email Generation
+/////////////////////////////////////////
+
+var Mailgun = require('mailgun-js');
+
+//API KEY from Mailgun’s Control Panel
+var api_key = process.env.MAILGUN_API_KEY;
+
+//Domain from the Mailgun Control Panel
+var domain = process.env.MAILGUN_DOMAIN;
+
+//WingsAirlines Email Address
+var email_from = 'no_reply@wingsairlines.com';
+
+//Sending email address
+var email_to = 'garg78@pnw.edu'; //Customer email address i.e. req.params.email 
+
+var path = require("path");
+
+//Retrieve ticket for attachment
+var fp = path.join(__dirname, '../utilities/tickets/ticket.pdf');
+
+/////////////////////////////////////////
+// Send Email with Attachment
+/////////////////////////////////////////
+
+var mailgun = new Mailgun({apiKey: api_key, domain: domain});
+
+var data = {
+  from: email_from,
+  to: email_to,
+  subject: 'WingsAirlines - Your ticket :)',
+  html: 'Please download your ticket before arriving at the airport.  <br><br>  Thank you for flying WingsAirlines! <br>', 
+  // attachment: fp
+};
+
+mailgun.messages().send(data, function (error, body) {
+  console.log(body);
+});
+
+/////////////////////////////////////////
     res.render('confirmation', { title: 'Confirmation' });
 });
 
@@ -125,6 +167,11 @@ router.get('/pnr', function(req, res, next){
 
 router.get('/destinations', function(req, res, next){
     res.render('destinations', {title: 'Destinations'});
+});
+
+
+router.get('/print', function(req, res, next){
+    res.render('print', {title: 'Print'});
 });
 
 module.exports = router;

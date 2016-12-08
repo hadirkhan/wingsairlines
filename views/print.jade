@@ -1,0 +1,31 @@
+extends ./templates/print_main.jade
+
+block content
+  - var toPrice = 500; var fromPrice = 900;
+    
+  div.container
+    div
+      div.logo-central
+  div.container
+    div.row.confirm-ticket-box
+      div.col-md-6.to-flight-info
+        div.col-md-5
+          div.col-md-1.logo-background
+            div.confirm-box-logo1
+          div.col-md-8.confirm-logo-text Wings Airlines
+        div.col-md-2.to-text 02:00 NYK
+        div.col-md-1.confirm-box-arrow
+        div.col-md-2.from-text 05:00 CHG
+        div.col-md-2.ticket-price $ #{toPrice}
+      div.col-md-6.return-flight-info
+        div.col-md-5
+          div.col-md-1.logo-background
+            div.confirm-box-logo1
+          div.col-md-8.confirm-logo-text Wings Airlines
+        div.col-md-2.to-text 18:00 CHG
+        div.col-md-1.confirm-box-arrow
+        div.col-md-2.from-text 22:00 NYK
+        div.col-md-2.ticket-price $ #{fromPrice}
+  div.container
+
+
