@@ -39,7 +39,7 @@ app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     cookie: {
-        maxAge: 60000
+        maxAge: 300000
     }
 }));
 app.use(express.static(path.join(__dirname, 'public')));

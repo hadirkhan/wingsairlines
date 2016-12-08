@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const JourneyTypeEnum = require('../utilities/JourneyTypeEnum');
+const randomstring = require("randomstring");
 
 
 var searchModule = require('../models/SearchFlightsModel');
@@ -72,7 +73,7 @@ router.post('/payments', function(req, res, next) {
                 flightDepartureTime: req.body.flightDepartureTime,
                 flightArrivalTime: req.body.flightArrivalTime,
                 flightDuration: req.body.flightDuration,
-                totalFare: '299',//req.body.totalFare,
+                totalFare: req.body.totalFare,
                 departureCityName: req.body.departureCityName,
                 departureCityShortCode: req.body.departureCityShortCode,
                 arrivalCityName: req.body.arrivalCityName,
@@ -85,14 +86,17 @@ router.post('/payments', function(req, res, next) {
                     flightDepartureTime: req.body.rFlightDepartureTime,
                     flightArrivalTime: req.body.rFlightArrivalTime,
                     flightDuration: req.body.rFlightDuration,
-                    totalFare: '200', //req.body.rTotalFare,
+                    totalFare: req.body.rTotalFare,
                     departureCityName: req.body.rDepartureCityName,
                     departureCityShortCode: req.body.rDepartureCityShortCode,
                     arrivalCityName: req.body.rArrivalCityName,
                     arrivalCityShortCode: req.body.rArrivalCityShortCode,
                     formattedDateOfTravel: req.body.rFormattedDateOfTravel
-                }
+                };
+
+                req.session.returnFlightInfo = selectedReturnFlightInfo;
             }
+            req.session.toFlightInfo = selectedToFlightInfo;
         }
 
         var templateData = {
@@ -111,9 +115,38 @@ router.post('/payments', function(req, res, next) {
     }
 });
 
-router.get('/confirmation', function(req, res, next){
-    res.render('confirmation', { title: 'Confirmation' });
+router.post('/confirmation', function(req, res, next){
+    if(req.session.toFlightInfo){
+        if(req.body){
+            if(req.body.personCardDetails.cardholderName && req.body.personCardDetails.cardType && req.body.personCardDetails.cardNumber){
+                console.log('req.body.personCardDetails', req.body.personCardDetails);
+                var cardNumbers =  ['1234567890', '9876543210'];
+                var cardType = ['Visa', 'MasterCard'];
+                console.log((cardNumbers.includes(req.body.personCardDetails.cardNumber)) && (cardType.includes(req.body.personCardDetails.cardType)));
+                if((cardNumbers.includes(req.body.personCardDetails.cardNumber)) && (cardType.includes(req.body.personCardDetails.cardType))){
+                    req.session.userPNR = randomstring.generate(6).toUpperCase();
+                    req.session.userReservationNumber = randomstring.generate(10).toUpperCase();
+                    res.send('success');
+                }
+            }else{
+                res.send('error');
+            }
+        }
+    }else {
+        console.info('Redirected user to index page from direct confirmation');
+        res.redirect('/');
+    }
 });
+
+router.get('/showConfirmation', function(req, res, next){
+    if(req.session){
+        var returnFlightInfo = req.session.returnFlightInfo;
+        var toFlightInfo = req.session.toFlightInfo;
+        res.render('confirmation', {title: 'About Us', returnFlightInfo: returnFlightInfo, toFlightInfo: toFlightInfo});
+
+    }
+});
+
 
 router.get('/about', function(req, res, next){
     res.render('about', {title: 'About Us'});
