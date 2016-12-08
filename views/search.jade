@@ -232,9 +232,9 @@ block append scripts
             $('input[type=radio][name=departure-flight]').on('change', function()
             {
                 var dFlightSelectedIndex = this.id.split('_')[3];
-                var dDepartureTime = currentSelectedReturnFlight.flightDepartureTime = $("#d_departure_time_"+dFlightSelectedIndex).text();
-                var dArrivalTime = currentSelectedReturnFlight.flightArrivalTime = $("#d_arrival_time_" + dFlightSelectedIndex).text();
-                dPrice = currentSelectedReturnFlight.totalFare = $("#d_price_" + dFlightSelectedIndex).text();
+                var dDepartureTime = currentSelectedToFlight.flightDepartureTime = $("#d_departure_time_"+dFlightSelectedIndex).text();
+                var dArrivalTime = currentSelectedToFlight.flightArrivalTime = $("#d_arrival_time_" + dFlightSelectedIndex).text();
+                dPrice = currentSelectedToFlight.totalFare = $("#d_price_" + dFlightSelectedIndex).text();
                 var dTotalPrice = parseInt(dPrice.split(" ")[1]) + parseInt(rPrice.split(" ")[1]);
                 var dFlightNo = currentSelectedToFlight.flightNo = $("#d_flight_no_"+dFlightSelectedIndex).text();
                 currentSelectedToFlight.flightDuration = $("#d_duration_time_" + dFlightSelectedIndex).text();

@@ -178,21 +178,30 @@ block append scripts
                  $(".containeralert2").css('display','block');
                  $(".containeralert2").slideUp(6000);
              } else {
-                 $.post('/confirmation', JSON.stringify({
-                     personCardDetails: {
-                         cardholderName: holdername,
-                         cardType: type,
-                         cardNumber: cardNumber,
-                         billingAddress: address
-                     },
-                     allPassengersDetails: allPassengersDetails
-                 }), function (data) {
-                     if(data['success']=='success'){
-                         window.location.href = '/showConfirmation'
-                     }else{
-                         alert('Please enter valid card details!');
+
+                 var data = {};
+                 data.personCardDetails = {
+                     cardholderName: holdername,
+                     cardType: type,
+                     cardNumber: cardNumber,
+                     billingAddress: address
+                 };
+                 data.allPassengersDetails = allPassengersDetails;
+
+                 $.ajax({
+                     type: 'POST',
+                     data: JSON.stringify(data),
+                     contentType: 'application/json',
+                     url: '/confirmPayment',
+                     success: function (data) {
+                         console.log(data);
+                         if (data == 'success') {
+                             window.location.href = '/confirmation'
+                         } else {
+                             alert('Please enter valid card details!');
+                         }
                      }
-                 })
+                 });
              }
         }
     

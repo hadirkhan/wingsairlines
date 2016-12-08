@@ -18,34 +18,34 @@ block content
         div.col-md-5
           div.col-md-1.logo-background
             div.confirm-box-logo1
-          div.col-md-8.confirm-logo-text Wings Airlines
-        div.col-md-2.to-text 03:45 CH
+          div.col-md-8.confirm-logo-text= toFlightInfo.flightNo
+        div.col-md-2.to-text #{toFlightInfo.flightDepartureTime} #{toFlightInfo.departureCityShortCode}
         div.col-md-1.confirm-box-arrow
-        div.col-md-2.from-text 05:45 NY
-        div.col-md-2.ticket-price $ #{toPrice}
+        div.col-md-2.from-text #{toFlightInfo.flightArrivalTime} #{toFlightInfo.arrivalCityShortCode}
+        div.col-md-2.ticket-price $ #{toFlightInfo.totalFare}
       div.col-md-6.return-flight-info
         div.col-md-5
           div.col-md-1.logo-background
             div.confirm-box-logo1
-          div.col-md-8.confirm-logo-text Wings Airlines
-        div.col-md-2.to-text 10:30 NY
+          div.col-md-8.confirm-logo-text= returnFlightInfo.flightNo
+        div.col-md-2.to-text #{returnFlightInfo.flightDepartureTime} #{returnFlightInfo.departureCityShortCode}
         div.col-md-1.confirm-box-arrow
-        div.col-md-2.from-text 11:00 CH
-        div.col-md-2.ticket-price $ #{fromPrice}
+        div.col-md-2.from-text #{returnFlightInfo.flightArrivalTime} #{returnFlightInfo.arrivalCityShortCode}
+        div.col-md-2.ticket-price $ #{returnFlightInfo.totalFare}
     div.row.thankyou-text
       | A copy of ticket is mailed to you.
       br
       | Thank you for using Wings Airlines!
-    //- input#pnrtext.p-box(type='text', name='Email', placeholder='Email Address' required)(style='margin-left:480px ; margin-top:20px')
+    input#pnrtext.p-box(type='text', name='Email', placeholder='Email Address' required)(style='margin-left:480px ; margin-top:20px')
   div.container
     div#p-continue1.col-sm-2.col-sm-2.col-sm-2
       button.btn.btn-warning.btn-sm.p-rectangle-5(style='margin-left:480px; margin-top:10px')
-        label.p-continue 
+        label.p-continue
           a(style='color: #ffffff', onclick="printClick()") Print
   div(style='height:20px')
 
  block append scripts
-  script.             
+  script.
       function printClick()
        {
         window.location.href='/print';
