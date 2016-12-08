@@ -94,7 +94,7 @@ router.post('/payments', function(req, res, next) {
                 }
                 req.session.returnFlightInfo = selectedReturnFlightInfo;
             }
-            req.session.toFlightInfo = selectedReturnFlightInfo;
+            req.session.toFlightInfo = selectedToFlightInfo;
         }
 
         var templateData = {
